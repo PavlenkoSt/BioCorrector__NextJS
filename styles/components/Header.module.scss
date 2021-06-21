@@ -79,7 +79,6 @@
 .logo{
     width: 150px;
     @media(max-width: $media-mb){
-        width: 120px;
         justify-self: start;
     }
 }

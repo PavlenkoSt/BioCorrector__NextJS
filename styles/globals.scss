@@ -6,6 +6,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   min-height: 100vh;
   height: 100%;
   width: 100%;
@@ -32,6 +33,9 @@ a {
   width: 100%;
   height: 100%;
   opacity: .8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container{
