@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 import s from '../../styles/commonsComponents/Header.module.scss'
+import logo from '../../public/icons/logo.svg'
 
 
 export default function Header(){
@@ -11,7 +13,7 @@ export default function Header(){
         <header className={s.header}>
             <div className="container">
                 <div className={s.main}>
-                    <img src='/icons/Logo.svg' alt='bio corrector' className={s.logo}/>
+                    <Image src={logo} alt='bio corrector' className={s.logo}/>
                     <div className={`${s.burger} ${menuOpen ? s.active : ''}`} onClick={toggleBurger}>
                         <div className={s.burger__line}></div>
                     </div>
