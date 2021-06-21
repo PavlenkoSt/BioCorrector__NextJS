@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
-import  Head  from 'next/head'
-
+import Head from 'next/head'
+import Header from '../common/Header'
 
 type MainLayoutPropsType = {
     title: string
@@ -9,13 +9,16 @@ type MainLayoutPropsType = {
 
 export default function MainLayout({ title, children }: MainLayoutPropsType){
     return (
-        <>
+        <div className='wrapper'>
             <Head>
                 <title>Биокорректор | {title}</title>
                 <meta name="description" content="Home page bio corrector site" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            { children }
-        </>
+            <Header/>
+            <main className='main'>
+                HI!
+            </main>
+        </div>
     )
 }
