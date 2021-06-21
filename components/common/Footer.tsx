@@ -22,7 +22,7 @@ export default function Footer () {
     ]
 
     const renderSocialLinks = socials.map(social => (
-        <Link href={social.href}>
+        <Link key={social.href} href={social.href}>
             <img width={20} height={20} src={social.icon} alt='social'/>
         </Link>
     ))
