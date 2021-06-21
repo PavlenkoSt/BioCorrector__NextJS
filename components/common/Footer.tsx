@@ -33,8 +33,8 @@ export default function Footer () {
                 <div className="container">
                     <div className={s.blocks}>
                         <div className={s.contacts}>
-                            <div className={s.tel}>+7 (925) 685-75-88</div>
-                            <div className={s.mail}>biokor17@mail.ru</div>
+                            <Link href='tel:+79256857588'><span className={s.tel}>+7 (925) 685-75-88</span></Link>
+                            <Link href='mailto:biokor17@mail.ru'><span className={s.mail}>biokor17@mail.ru</span></Link>
                         </div>
                         <div className={s.nav}>
                             { renderedNavLinks }
