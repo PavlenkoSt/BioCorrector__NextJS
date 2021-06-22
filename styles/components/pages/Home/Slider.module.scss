@@ -1,0 +1,113 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.overlay{
+    background: linear-gradient(270deg, rgba(15, 11, 10, 0.3) 0%, #21140E 48.44%, rgba(8, 6, 5, 0.3) 100%);
+    padding: 80px 105px;
+    border-radius: 12px;
+    margin-bottom: 80px;
+
+    @media(max-width: $media-big-tb){
+        padding: 50px 45px 80px;
+    }
+
+    @media(max-width: $media-mb){
+        padding-bottom: 60px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+}
+
+.slide{
+    display: flex;
+    gap: 50px;
+    padding: 0 15px;
+    @media(max-width: $media-tb){
+        gap: 30px;
+        flex-direction: column;
+    }
+}
+
+.pic{
+    width: 30%;
+    
+    & img{
+        width: 100%;
+    }
+
+    @media(max-width: $media-tb){
+        width: 100%;
+
+        & img{
+            width: 40%;
+            margin: auto;
+        }
+    }
+}
+
+.info{
+    width: 70%;
+    margin-bottom: 50px;
+
+    @media(max-width: $media-tb){
+        width: 100%;
+    }
+
+    @media(max-width: $media-mb){
+        margin-bottom: 35px;
+    }
+}
+
+.title{
+    font-family: 'Cormorant', serif;
+    @include adaptive-font(50, 24);
+    color: #FFDF96;
+    margin-bottom: 30px;
+
+    @media(max-width: $media-tb){
+        text-align: center;
+    }
+
+    @media(max-width: $media-mb){
+        margin-bottom: 15px;
+    }
+}
+
+.desc{
+    color: #A4936F;
+    @include adaptive-font(18, 14);
+    font-weight: 600;
+    margin-bottom: 40px;
+
+    @media(max-width: $media-tb){
+        text-align: center;
+    }
+
+    @media(max-width: $media-mb){
+        margin-bottom: 25px;
+    }
+}
+
+.button{
+    background-color: transparent;
+    border: 1px solid #FFDF96;
+    border-radius: 36px;
+    color: #FFDF96;
+    font-size: 16px;
+    padding: 10px 60px;
+    cursor: pointer;
+    transition: all ease .2s;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            background-color: #FFDF96;
+            color: #333;
+        }
+    }
+
+    @media(max-width: $media-tb){
+        display: flex;
+        justify-content: center;
+    }
+}
