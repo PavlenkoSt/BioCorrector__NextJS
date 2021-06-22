@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { ProductType } from "../../store/reducers/productsReducer"
 import { productsSelector } from "../../store/selectors/productsSelectors"
 import OurProductsItem from "./OurProductsItem"
-import s from '../../styles/components/OurProducts.module.scss'
+import s from '../../styles/components/common/OurProducts.module.scss'
 
 
 const OurProducts = () => {

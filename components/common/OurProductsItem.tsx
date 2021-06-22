@@ -1,5 +1,5 @@
 import { FC } from "react"
-import s from '../../styles/components/OurProducts.module.scss'
+import s from '../../styles/components/common/OurProducts.module.scss'
 import Link from 'next/link'
 
 

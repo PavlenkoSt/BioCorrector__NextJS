@@ -1,4 +1,4 @@
-import s from '../../styles/components/Footer.module.scss'
+import s from '../../styles/components/common/Footer.module.scss'
 import Link from 'next/link'
 import { FC, ReactNode } from 'react'
 

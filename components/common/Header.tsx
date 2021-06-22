@@ -1,5 +1,5 @@
 import { FC, ReactNode, useState } from 'react'
-import s from '../../styles/components/Header.module.scss'
+import s from '../../styles/components/common/Header.module.scss'
 
 
 type HeaderPropsType = {
