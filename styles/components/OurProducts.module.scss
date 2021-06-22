@@ -1,0 +1,122 @@
+@import '../vars.scss';
+
+.board{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 100px;
+
+    @media(max-width: $media-big-tb){
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    }
+
+    @media(max-width: $media-mb){
+        grid-template-columns: 1fr;
+        margin-bottom: 50px;
+    }
+}
+
+.overlay{
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 30px;
+    width: 25%;
+    position: relative;
+    cursor: pointer;
+
+    &::before{
+        content: '';
+        background: linear-gradient(270deg, rgba(8, 6, 5, 0.3) 0%, #080605 48.44%, rgba(8, 6, 5, 0.3) 100%);
+        opacity: 0.4;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity .2s ease;
+    }
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            &::before{
+                opacity: .6;
+            }
+        }
+    }
+
+    @media(max-width: $media-big-tb){
+        width: 100%;
+    }
+
+    @media(max-width: $media-mb){
+        padding: 25px 15px;
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+.img{
+    width: 100%;
+    display: block;
+    margin-bottom: 35px;
+}
+
+.divinedLine{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    position: relative;
+    background: url(/icons/Union.svg) center no-repeat;
+    margin-bottom: 10px;
+
+    &::after, &::before{
+        content: '';
+        width: 30%;
+        height: 2px;
+        background-color: #E8FFCA;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before{
+        right: 65%;
+
+        @media(max-width: $media-big-tb){
+            right: 60%;
+        }
+    }
+
+    &::after{
+        left: 65%;
+
+        @media(max-width: $media-big-tb){
+            left: 60%;
+        }
+    }
+}
+
+.name{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFDF96;
+    text-align: center;
+    margin-top: auto;
+}
+
+.price{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #E8FFCA;
+    margin-top: auto;
+}

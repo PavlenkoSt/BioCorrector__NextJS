@@ -2,6 +2,7 @@ import MainLayout from '../components/layouts/MainLayout'
 import React from 'react'
 import {useSelector} from 'react-redux'
 import { productsSelector } from '../store/selectors/productsSelectors'
+import OurProducts from '../components/common/OurProducts'
 
 const Home = () => {
   const products = useSelector(productsSelector)
@@ -9,7 +10,7 @@ const Home = () => {
   
   return (
     <MainLayout title='Главная'>
-      HI!
+      <OurProducts/>
     </MainLayout>
   )
 }

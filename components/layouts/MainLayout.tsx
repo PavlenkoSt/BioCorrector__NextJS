@@ -44,7 +44,9 @@ const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
                 nav={ renderedNavLinks }
             />
             <main className='main'>
-                { children }
+                <div className="container">
+                    { children }
+                </div>
             </main>
             <Footer 
                 nav={ renderedNavLinks }
