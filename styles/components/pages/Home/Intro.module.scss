@@ -1,0 +1,129 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.intro{
+    display: flex;
+    gap: 100px;
+    min-height: calc(100vh - 110px);
+    padding: 100px 0;
+    
+    @media(max-width: $media-big-tb){
+        justify-content: center;
+    }
+
+    @media(max-width: $media-mb){
+        min-height: calc(100vh - 90px);
+    }
+
+    @media(max-height: 500px){
+        padding: 0 0 70px;
+    }
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+
+    @media(max-width: $media-big-tb){
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+.logo{
+    max-width: 450px;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media(max-width: $media-big-tb){
+        margin: 0 auto 30px;
+    }
+
+    @media(max-width: $media-mb){
+        padding: 0 10px;
+        margin-bottom: 15px;
+    }
+}
+
+.title{
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: 'Cormorant', serif;
+    font-weight: 500;
+    line-height: 40px;
+    color: #A4936F;
+    @include adaptive-font(45, 30);
+
+    @media(max-width: $media-big-tb){
+        text-align: center;
+    }
+
+    @media(max-width: $media-mb){
+        font-size: 25px;
+        line-height: 25px;
+    }
+}
+
+.subtitle{
+    color: #A4936F;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 40px;
+    @include adaptive-font(20, 14);
+
+    @media(max-width: $media-big-tb){
+        text-align: center;
+    }
+
+    @media(max-width: $media-mb){
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+}
+
+.button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background-color: #FFDF96;
+    border-radius: 36px;
+    color: #381207;
+    font-size: 16px;
+    padding: 10px 55px;
+    align-self: flex-start;
+    border: 1px solid #FFDF96;
+    transition: all ease .2s;
+    cursor: pointer;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            background-color: transparent;
+            color: #FFDF96;
+        }
+    }
+
+    @media(max-width: $media-big-tb){
+        margin: 0 auto;
+    }
+
+    @media(max-width: $media-mb){
+        width: 100%;
+    }
+}
+
+.photo{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img{
+        width: 90%;
+        display: block;
+    }
+
+    @media(max-width: $media-big-tb){
+        display: none;
+    }
+}
