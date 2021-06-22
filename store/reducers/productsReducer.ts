@@ -10,7 +10,7 @@ const initialState = {
     ]
 }
 
-export default function productsReducer(state = initialState, action: AnyAction){
+const productsReducer = (state = initialState, action: AnyAction) => {
     switch(action.type){
         default: 
             return {
@@ -18,6 +18,8 @@ export default function productsReducer(state = initialState, action: AnyAction)
             }
     }
 }
+
+export default productsReducer
 
 export type ProductType = {
     id: number,

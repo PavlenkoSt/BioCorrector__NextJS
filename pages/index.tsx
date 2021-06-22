@@ -1,10 +1,10 @@
 import MainLayout from '../components/layouts/MainLayout'
 import React from 'react'
 import {useSelector} from 'react-redux'
+import { productsSelector } from '../store/selectors/productsSelectors'
 
-export default function Home() {
-  //@ts-ignore
-  const {products} = useSelector(state => state)
+const Home = () => {
+  const products = useSelector(productsSelector)
   console.log(products)
   
   return (
@@ -13,3 +13,5 @@ export default function Home() {
     </MainLayout>
   )
 }
+
+export default Home

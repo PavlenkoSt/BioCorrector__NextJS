@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { FC, ReactNode } from "react"
 import Head from 'next/head'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
@@ -9,7 +9,30 @@ type MainLayoutPropsType = {
     children: ReactNode
 }
 
-export default function MainLayout({ title, children }: MainLayoutPropsType){
+const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
+    const navs = [
+        {title: 'Главная', href: '/'},
+        {title: 'Статьи', href: '/articles'},
+        {title: 'Отзывы', href: '/reviews'},
+        {title: 'Вопросы и ответы', href: '/questions'}
+    ]
+    const renderedNavLinks = navs.map(nav => <Link key={nav.href} href={ nav.href }>{ nav.title }</Link>)
+
+    const socials = [
+        {icon: '/icons/socialPlacehold.svg', href: '/1'},
+        {icon: '/icons/socialPlacehold.svg', href: '/2'},
+        {icon: '/icons/socialPlacehold.svg', href: '/3'},
+        {icon: '/icons/socialPlacehold.svg', href: '/4'},
+        {icon: '/icons/socialPlacehold.svg', href: '/5'},
+        {icon: '/icons/socialPlacehold.svg', href: '/6'},
+        {icon: '/icons/socialPlacehold.svg', href: '/7'},
+    ]
+    const renderSocialLinks = socials.map(social => (
+        <Link key={social.href} href={social.href}>
+            <img width={20} height={20} src={social.icon} alt='social'/>
+        </Link>
+    ))
+
     return (
         <div className='wrapper'>
             <Head>
@@ -17,11 +40,18 @@ export default function MainLayout({ title, children }: MainLayoutPropsType){
                 <meta name="description" content="Home page bio corrector site" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header/>
+            <Header 
+                nav={ renderedNavLinks }
+            />
             <main className='main'>
                 { children }
             </main>
-            <Footer/>
+            <Footer 
+                nav={ renderedNavLinks }
+                socials={ renderSocialLinks }
+            />
         </div>
     )
 }
+
+export default MainLayout

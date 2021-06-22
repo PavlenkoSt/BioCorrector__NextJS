@@ -1,20 +1,14 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import { FC, ReactNode, useState } from 'react'
 import s from '../../styles/components/Header.module.scss'
 
 
-export default function Header(){
+type HeaderPropsType = {
+    nav: Array<ReactNode>
+}
+
+const Header: FC<HeaderPropsType> = ({ nav }) =>{
     const [menuOpen, setMenuOpen] = useState(false)
     const toggleBurger = () => setMenuOpen((prevState) => !prevState)
-
-    const navs = [
-        {title: 'Главная', href: '/'},
-        {title: 'Статьи', href: '/articles'},
-        {title: 'Отзывы', href: '/reviews'},
-        {title: 'Вопросы и ответы', href: '/questions'}
-    ]
-
-    const renderedNavLinks = navs.map(nav => <Link key={nav.href} href={ nav.href }>{ nav.title }</Link>)
 
     return (
         <header className={s.header}>
@@ -25,7 +19,7 @@ export default function Header(){
                         <div className={s.burger__line}></div>
                     </div>
                     <nav className={`${s.nav} ${menuOpen ? s.show : ''}`}>
-                        { renderedNavLinks }
+                        { nav }
                     </nav>
                     <div className={s.order}>
                         <button className={s.orderBtn}><span className={s.orderBtn__content}>Заказать звонок</span></button>
@@ -36,3 +30,5 @@ export default function Header(){
         </header>
     )
 }
+
+export default Header

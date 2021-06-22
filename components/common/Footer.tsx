@@ -1,32 +1,13 @@
 import s from '../../styles/components/Footer.module.scss'
 import Link from 'next/link'
+import { FC, ReactNode } from 'react'
 
-export default function Footer () {
-    const navs = [
-        {title: 'Главная', href: '/'},
-        {title: 'Статьи', href: '/articles'},
-        {title: 'Отзывы', href: '/reviews'},
-        {title: 'Вопросы и ответы', href: '/questions'}
-    ]
+type HeaderPropsType = {
+    nav: Array<ReactNode>
+    socials: Array<ReactNode>
+}
 
-    const renderedNavLinks = navs.map(nav => <Link key={nav.href} href={ nav.href }>{ nav.title }</Link>)
-
-    const socials = [
-        {icon: '/icons/socialPlacehold.svg', href: '/1'},
-        {icon: '/icons/socialPlacehold.svg', href: '/2'},
-        {icon: '/icons/socialPlacehold.svg', href: '/3'},
-        {icon: '/icons/socialPlacehold.svg', href: '/4'},
-        {icon: '/icons/socialPlacehold.svg', href: '/5'},
-        {icon: '/icons/socialPlacehold.svg', href: '/6'},
-        {icon: '/icons/socialPlacehold.svg', href: '/7'},
-    ]
-
-    const renderSocialLinks = socials.map(social => (
-        <Link key={social.href} href={social.href}>
-            <img width={20} height={20} src={social.icon} alt='social'/>
-        </Link>
-    ))
-
+const Footer: FC<HeaderPropsType> = ({ nav, socials }) => {
     return (
         <footer className={s.main}>
             <div className={s.content}>
@@ -37,10 +18,10 @@ export default function Footer () {
                             <Link href='mailto:biokor17@mail.ru'><span className={s.mail}>biokor17@mail.ru</span></Link>
                         </div>
                         <div className={s.nav}>
-                            { renderedNavLinks }
+                            { nav }
                         </div>
                         <div className={s.social}>
-                            { renderSocialLinks }
+                            { socials }
                         </div>
                     </div>
                 </div>
@@ -51,3 +32,5 @@ export default function Footer () {
         </footer>
     )
 }
+
+export default Footer

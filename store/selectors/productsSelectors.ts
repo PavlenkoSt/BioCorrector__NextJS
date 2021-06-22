@@ -1,0 +1,1 @@
+export const productsSelector = (state: any) => state.products.products
