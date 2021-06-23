@@ -70,14 +70,10 @@
     font-family: 'Cormorant', serif;
     @include adaptive-font(50, 24);
     color: #FFDF96;
-    margin-bottom: 30px;
+    @include adaptive-value('margin-bottom', 30, 15);
 
     @media(max-width: $media-tb){
         text-align: center;
-    }
-
-    @media(max-width: $media-mb){
-        margin-bottom: 15px;
     }
 }
 

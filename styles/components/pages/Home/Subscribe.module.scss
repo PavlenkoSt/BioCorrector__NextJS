@@ -1,0 +1,144 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.subscribe{
+    padding: 60px 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    @include adaptive-value('margin-bottom', 120, 40);
+    @include adaptive-value('padding-left', 120, 10);
+    @include adaptive-value('padding-right', 120, 10);
+    @include adaptive-value('padding-top', 60, 20);
+    @include adaptive-value('padding-top', 60, 30);
+
+    &::before{
+        content: '';
+        position: absolute;
+        background: linear-gradient(270deg, rgba(15, 11, 10, 0.3) 0%, #21140E 48.44%, rgba(8, 6, 5, 0.3) 100%);
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.content{
+    position: relative;
+    z-index: 1;
+    font-family: 'Roboto', serif;
+}
+
+.title{
+    font-family: 'Cormorant', serif;
+    color: #FFDF96;
+    @include adaptive-font(50, 30);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.info{
+    color: #A4936F;
+    @include adaptive-font(18, 14);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formInner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.form{
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+
+    @media(max-width: $media-mb){
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+}
+
+.input{
+    border: 1px solid #FFDF96;
+    border-radius: 36px 0px 0px 36px;
+    width: 400px;
+    background-color: transparent;
+    padding: 10px 15px;
+    color: rgba(255, 223, 150, 0.8);
+    font-size: 16px;
+    margin-left: -60px;
+    outline: none;
+
+    &::placeholder{
+        color: rgba(255, 223, 150, 0.4);
+    }
+
+    @media(max-width: $media-mb){
+        margin-left: 0;
+        width: 100%;
+        border-radius: 36px;
+    }
+}
+
+.btn{
+    cursor: pointer;
+    color: #381207;
+    background-color: #FFDF96;
+    border: 1px solid #FFDF96;
+    border-radius: 36px;
+    padding: 10px 30px;
+    text-align: center;
+    transition: all ease .2s;
+    margin-right: -50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            background-color: #ffce5c;
+        }
+    }
+
+    @media(max-width: $media-mb){
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+.security{
+    text-align: center;
+    color: #98AD7E;
+    @include adaptive-font(14, 12);
+}
+
+.errorForm{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    z-index: 10;
+    background-color: rgb(255, 136, 136);
+    padding: 10px 30px;
+    width: 400px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+    font-weight: 500;
+    font-size: 12px;
+
+    @media(max-width: $media-mb){
+        width: 100%;
+        border-radius: 30px;
+    }
+}

@@ -8,6 +8,7 @@ import OurProducts from '../components/common/OurProducts'
 import Diviner from '../components/common/Diviner'
 import WhatFor from '../components/pages/Home/WhatFor'
 import Reviews from '../components/pages/Home/Reviews'
+import Subscribe from '../components/pages/Home/Subscribe'
 
 
 const Home = () => {
@@ -24,6 +25,8 @@ const Home = () => {
       <WhatFor/>
       <Diviner/>
       <Reviews/>
+      <Diviner/>
+      <Subscribe/>
       <Diviner/>
     </MainLayout>
   )

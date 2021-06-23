@@ -73,11 +73,10 @@ body{
 .title{
   font-family: 'Cormorant', serif;
   color: #FFDF96;
-  @include adaptive-font(30, 28);
+  @include adaptive-font(40, 30);
   text-align: center;
   margin: 0;
   @include adaptive-value('margin-bottom', 50, 30);
-
 }
 
 // change slider styles ==========
