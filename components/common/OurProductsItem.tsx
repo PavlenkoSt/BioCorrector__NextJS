@@ -7,15 +7,15 @@ type OurProductsItemPropsType = {
     id: number
     name: string
     price: number
-    picture: string
+    pictures: Array<string>
 }
 
-const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, picture }) => {
+const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, pictures }) => {
     return (
         <Link href={`/product/${id}`}>
             <div className={s.overlay}>
                 <div className={s.content}>
-                    <img className={s.img} src={picture} alt="product" />
+                    <img className={s.img} src={pictures[0]} alt="product" />
                     <div className={s.divinedLine}>
                         <div className={s.line}></div>
                         <div className={s.figure}></div>

@@ -2,5 +2,11 @@
 @import '../../../mixins';
 
 .page{
+    display: flex;
+    gap: 50px;
     @include adaptive-value('margin-bottom', 120, 40);
+}
+
+.galleryAndCounter{
+    width: 45%;
 }

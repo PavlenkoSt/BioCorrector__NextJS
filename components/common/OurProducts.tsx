@@ -16,7 +16,7 @@ const OurProducts = () => {
         .map((product: ProductType) => <OurProductsItem
             key={product.id}
             id={product.id}
-            picture={product.picture}
+            pictures={product.pictures}
             name={product.name}
             price={product.price}
         />)

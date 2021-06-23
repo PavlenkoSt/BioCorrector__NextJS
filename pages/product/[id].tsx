@@ -7,6 +7,7 @@ import NotFound from '../../components/pages/Product/NotFound'
 import ProductInfo from '../../components/pages/Product/ProductInfo'
 import { useEffect, useState } from 'react'
 import s from '../../styles/components/pages/Product/Product.module.scss'
+import Gallery from '../../components/pages/Product/Gallery'
 
 const Product = () => {
     const [load, setLoad] = useState(true)
@@ -25,7 +26,7 @@ const Product = () => {
         price: product?.price,
         inStock: product?.inStock,
         chars: product?.characteristics,
-        desc: product?.description
+        desc: product?.description,
     } 
     
     return (
@@ -33,6 +34,11 @@ const Product = () => {
             {
                 !product && !load ? <NotFound/> : (
                     <div className={s.page}>
+                        <div className={s.galleryAndCounter}>
+                            <Gallery
+                                pictures={product?.pictures}
+                            />
+                        </div>
                         <ProductInfo 
                             info={ info }
                             countProd={countProd}
