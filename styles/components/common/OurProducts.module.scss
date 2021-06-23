@@ -4,11 +4,12 @@
 .board{
     display: flex;
     gap: 15px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 
     @media(max-width: $media-big-tb){
         display: grid;
         grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        margin-bottom: 80px;
     }
 
     @media(max-width: $media-mb){
@@ -75,39 +76,31 @@
 }
 
 .divinedLine{
-    width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 30px 1fr;
+    gap: 10px;
     align-items: center;
-    height: 25px;
-    position: relative;
-    background: url(/icons/Union.svg) center no-repeat;
     margin-bottom: 10px;
+}
 
-    &::after, &::before{
-        content: '';
-        width: 30%;
-        height: 2px;
-        background-color: #E8FFCA;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+.line{
+    width: 80%;
+    height: 2px;
+    background-color: #E8FFCA;
+    
+    &:first-child{
+        margin-left: auto;
     }
 
-    &::before{
-        right: 65%;
-
-        @media(max-width: $media-big-tb){
-            right: 60%;
-        }
+    &:last-child{
+        margin-right: auto;
     }
+}
 
-    &::after{
-        left: 65%;
-
-        @media(max-width: $media-big-tb){
-            left: 60%;
-        }
-    }
+.figure{
+    background: url(/icons/Union.svg) center no-repeat;
+    background-size: cover;
+    height: 20px;
 }
 
 .name{

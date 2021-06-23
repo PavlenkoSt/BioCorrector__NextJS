@@ -24,6 +24,7 @@ const Home = () => {
       <WhatFor/>
       <Diviner/>
       <Reviews/>
+      <Diviner/>
     </MainLayout>
   )
 }

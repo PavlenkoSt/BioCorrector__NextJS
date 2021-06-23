@@ -3,7 +3,6 @@ import { ReviewType } from '../../../store/reducers/reviewsReducer'
 import { reviewsSelector } from '../../../store/selectors/reviewsSelector'
 import s from '../../../styles/components/pages/Home/Reviews.module.scss'
 import ReviewsItem from './ReviewsItem'
-import Link from 'next/link'
 import Button from '../../../components/common/Button'
 
 
@@ -27,7 +26,7 @@ const Reviews = () => {
             </div>
             <Button
                 href='/'
-                text='Все озывы'
+                text='Все отзывы'
             />
         </section>
     )
