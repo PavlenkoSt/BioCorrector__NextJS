@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import s from '../../../styles/components/pages/Home/Slider.module.scss'
+import Button from '../../../components/common/Button'
 
 
 type SliderItemPropsType = {
@@ -8,16 +9,21 @@ type SliderItemPropsType = {
 }
 
 const SliderItem: FC<SliderItemPropsType> = ({ title, desc }) => {
-    return <div className={s.slide}>
-        <div className={s.pic}>
-            <img src="/home/slider.png" alt="slider" />
+    return (
+        <div className={s.slide}>
+            <div className={s.pic}>
+                <img src="/home/slider.png" alt="slider" />
+            </div>
+            <div className={s.info}>
+                <div className={s.title}>{ title }</div>
+                <div className={s.desc}>{ desc }</div>
+                <Button
+                    href="#"
+                    text="Подробнее"
+                />
+            </div>
         </div>
-        <div className={s.info}>
-            <div className={s.title}>{ title }</div>
-            <div className={s.desc}>{ desc }</div>
-            <a href="#" className={s.button}>Подробнее</a>
-        </div>
-    </div>
+    )
 }
 
 export default SliderItem

@@ -1,0 +1,84 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.reviews{
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 35px;
+}
+
+.item{
+    border-radius: 16px;
+    padding: 25px 50px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Roboto', serif;
+
+    &::before{
+        content: '';
+        background: linear-gradient(270deg, rgba(8, 6, 5, 0.3) 0%, #080605 48.44%, rgba(8, 6, 5, 0.3) 100%);
+        opacity: .6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.itemInner{
+    position: relative;
+    z-index: 1;
+    color: #A4936F;
+}
+
+.author{
+    color: #FFDF96;
+    font-family: 'Carmorant', serif;
+    @include adaptive-font(20, 18);
+    margin-bottom: 5px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.text{
+    & p{
+        font-size: 14px;
+    }
+}
+
+.source{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.social{
+    margin-left: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    & img{
+        width: 13px;
+        height: 13px;
+        margin-right: 5px;
+    }
+}

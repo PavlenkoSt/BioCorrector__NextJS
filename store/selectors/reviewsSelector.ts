@@ -1,0 +1,1 @@
+export const reviewsSelector = (state: any) => state.reviews.reviews

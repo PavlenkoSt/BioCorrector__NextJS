@@ -7,6 +7,7 @@ import Slider from '../components/pages/Home/Slider'
 import OurProducts from '../components/common/OurProducts'
 import Diviner from '../components/common/Diviner'
 import WhatFor from '../components/pages/Home/WhatFor'
+import Reviews from '../components/pages/Home/Reviews'
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
       <Diviner/>
       <WhatFor/>
       <Diviner/>
+      <Reviews/>
     </MainLayout>
   )
 }

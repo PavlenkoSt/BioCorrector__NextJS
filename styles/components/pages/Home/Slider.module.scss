@@ -52,6 +52,9 @@
 
     @media(max-width: $media-tb){
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     @media(max-width: $media-mb){
@@ -86,28 +89,5 @@
 
     @media(max-width: $media-mb){
         margin-bottom: 25px;
-    }
-}
-
-.button{
-    background-color: transparent;
-    border: 1px solid #FFDF96;
-    border-radius: 36px;
-    color: #FFDF96;
-    font-size: 16px;
-    padding: 10px 60px;
-    cursor: pointer;
-    transition: all ease .2s;
-
-    @media(min-width: $media-big-tb){
-        &:hover{
-            background-color: #FFDF96;
-            color: #333;
-        }
-    }
-
-    @media(max-width: $media-tb){
-        display: flex;
-        justify-content: center;
     }
 }
