@@ -5,6 +5,7 @@ import { productsSelector } from '../store/selectors/productsSelectors'
 import Intro from '../components/pages/Home/Intro'
 import Slider from '../components/pages/Home/Slider'
 import OurProducts from '../components/common/OurProducts'
+import Diviner from '../components/common/Diviner'
 
 
 const Home = () => {
@@ -15,7 +16,9 @@ const Home = () => {
     <MainLayout title='Главная'>
       <Intro/>
       <Slider/>
+      <Diviner/>
       <OurProducts/>
+      <Diviner/>
     </MainLayout>
   )
 }
