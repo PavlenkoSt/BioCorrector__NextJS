@@ -5,18 +5,17 @@
     background: linear-gradient(270deg, rgba(15, 11, 10, 0.3) 0%, #21140E 48.44%, rgba(8, 6, 5, 0.3) 100%);
     padding: 80px 105px;
     border-radius: 12px;
-    margin-bottom: 120px;
+    @include adaptive-value('margin-bottom', 120, 40);
+
 
     @media(max-width: $media-big-tb){
         padding: 50px 45px 80px;
-        margin-bottom: 80px;
     }
 
     @media(max-width: $media-mb){
         padding-bottom: 60px;
         padding-left: 0;
         padding-right: 0;
-        margin-bottom: 50px;
     }
 }
 

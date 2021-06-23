@@ -76,15 +76,8 @@ body{
   @include adaptive-font(30, 28);
   text-align: center;
   margin: 0;
-  margin-bottom: 50px;
+  @include adaptive-value('margin-bottom', 50, 30);
 
-  @media(max-width: $media-big-tb){
-    margin-bottom: 45px;
-  }
-
-  @media(max-width: $media-mb){
-    margin-bottom: 35px;
-  }
 }
 
 // change slider styles ==========
