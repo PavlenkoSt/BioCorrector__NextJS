@@ -1,0 +1,6 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.page{
+    @include adaptive-value('margin-bottom', 120, 40);
+}

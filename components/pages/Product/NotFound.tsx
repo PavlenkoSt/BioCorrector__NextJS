@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import s from '../../../styles/components/pages/Product/NotFound.module.scss'
 import Button from '../../common/Button'
 

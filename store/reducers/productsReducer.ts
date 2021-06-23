@@ -16,7 +16,8 @@ const initialState = {
             ],
             shortDescription: 'Мобильная версия. С аккумулятором.  Подойдет для личного пользования. Помогает настроить окружающую среду на хорошую энергетику.',
             price: 2500,
-            picture: '/products/1.png'
+            picture: '/products/1.png',
+            inStock: true,
         },
         {
             id: 1, 
@@ -30,7 +31,8 @@ const initialState = {
             ],
             shortDescription: 'Мощное устройство. Без аккумулятора.  Подойдет для помещений, офисов, домов.  Подавляет негативную энергию.',
             price: 2000,
-            picture: '/products/1.png'
+            picture: '/products/1.png',
+            inStock: true,
         },
         {
             id: 2, 
@@ -43,7 +45,8 @@ const initialState = {
             ],
             shortDescription: 'Аудиоустройство. Можно использовать при прослушивании медитаций и молитв. Создает информацию позитива.',
             price: 5000,
-            picture: '/products/1.png'
+            picture: '/products/1.png',
+            inStock: true,
         },
         {
             id: 3, 
@@ -57,7 +60,8 @@ const initialState = {
             ],
             shortDescription: 'Мобильная версия. С аккумулятором.  Подойдет для личного пользования. Помогает настроить окружающую среду на хорошую энергетику.',
             price: 5000,
-            picture: '/products/1.png'
+            picture: '/products/1.png',
+            inStock: true,
         }
     ]
 }
@@ -81,9 +85,10 @@ export type ProductType = {
     price: number
     shortDescription: string
     picture: string
+    inStock: boolean
 }
 
-type CharacteristicsType = {
+export type CharacteristicsType = {
     point: string
     value: string
 }

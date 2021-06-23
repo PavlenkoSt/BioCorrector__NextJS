@@ -50,7 +50,6 @@
 }
 
 .title{
-    margin: 0;
     margin-bottom: 20px;
     font-family: 'Cormorant', serif;
     font-weight: 500;
@@ -71,7 +70,6 @@
 .subtitle{
     color: #A4936F;
     font-weight: 400;
-    margin: 0;
     margin-bottom: 40px;
     @include adaptive-font(20, 14);
 
