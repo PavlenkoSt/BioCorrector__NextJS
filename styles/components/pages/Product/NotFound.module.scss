@@ -1,0 +1,16 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.window{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include adaptive-value('margin-bottom', 120, 40);
+}
+
+.message{
+    @include adaptive-font(26, 18);
+    color: #FFDF96;
+    font-family: 'Cormorant', serif;
+    text-align: center;
+}
