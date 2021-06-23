@@ -1,4 +1,5 @@
 @import './vars.scss';
+@import './mixins.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
@@ -72,13 +73,13 @@ body{
 .title{
   font-family: 'Cormorant', serif;
   color: #FFDF96;
-  font-size: 30px;
+  @include adaptive-font(30, 28);
   text-align: center;
   margin: 0;
   margin-bottom: 45px;
 
   @media(max-width: $media-mb){
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
 }
 

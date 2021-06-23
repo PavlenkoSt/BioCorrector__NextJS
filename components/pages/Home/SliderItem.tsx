@@ -10,7 +10,7 @@ type SliderItemPropsType = {
 const SliderItem: FC<SliderItemPropsType> = ({ title, desc }) => {
     return <div className={s.slide}>
         <div className={s.pic}>
-            <img src="/intro/slider.png" alt="slider" />
+            <img src="/home/slider.png" alt="slider" />
         </div>
         <div className={s.info}>
             <div className={s.title}>{ title }</div>

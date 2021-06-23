@@ -11,7 +11,7 @@ const Intro = () => {
                 <button className={s.button}>Выбрать биокорректор</button>
             </div>
             <div className={s.photo}>
-                <img src="/intro/biocor.png" alt="biocorrector" />
+                <img src="/home/biocor.png" alt="biocorrector" />
             </div>
         </section>
     )

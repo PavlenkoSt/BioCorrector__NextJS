@@ -1,0 +1,36 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    justify-items: center;
+    margin-bottom: 120px;
+
+    @media(max-width: $media-mb){
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+}
+
+.card{
+    max-width: 300px;
+}
+
+.pic{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    @media(max-width: $media-mb){
+        margin-bottom: 15px;
+    }
+}
+
+.text{
+    color: #A4936F;
+    @include adaptive-font(18, 15);
+    text-align: center;
+}
