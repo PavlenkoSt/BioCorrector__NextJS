@@ -8,9 +8,10 @@ type OrderPropsType = {
     subtitle: string
     copy: string
     setIsOrdered: (isOrdered: boolean) => void
+    type: 'product' | 'call'
 }
 
-const Order: FC<OrderPropsType> = ({ title, subtitle, copy, setIsOrdered }) => {
+const Order: FC<OrderPropsType> = ({ title, subtitle, copy, setIsOrdered, type }) => {
     return (
         <div className={s.overlay}>
             <div className={s.window}>
@@ -19,6 +20,7 @@ const Order: FC<OrderPropsType> = ({ title, subtitle, copy, setIsOrdered }) => {
                     <p className={s.subtitle}>{ subtitle }</p>
                     <OrderForm
                         setIsOrdered={setIsOrdered}
+                        type={type}
                     />
                     <div className={s.copy}>{ copy }</div>
                 </div>

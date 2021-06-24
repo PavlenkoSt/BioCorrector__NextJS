@@ -2,13 +2,18 @@ import Link from 'next/link'
 import s from '../../styles/components/common/Order.module.scss'
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import customerActions from '../../store/actionCreators/cutomers'
 
 
 type OrderFormPropsType = {
     setIsOrdered: (isOrdered: boolean) => void
+    type: 'product' | 'call'
 }
 
-const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered }) => {
+const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered, type }) => {
+    const dispatch = useDispatch()
+
     const {
         register,
         handleSubmit,
@@ -18,6 +23,7 @@ const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered }) => {
     const validators = { 
         required: true
     }
+
     const phonePatternValidate = {
         pattern: {
             value: /^(\+)?(\(\d{2,3}\) ?\d|\d)(([ \-]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/,
@@ -27,6 +33,10 @@ const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered }) => {
 
     const onSubmit = (data: SubmitDataType) => {
         setIsOrdered(true)
+
+        if(type === 'product'){
+            dispatch(customerActions.setCustomerDataSuccess(data))
+        }
     }
 
     type SubmitDataType = {

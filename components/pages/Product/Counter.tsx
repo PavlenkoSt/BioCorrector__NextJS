@@ -24,7 +24,7 @@ const Counter = () => {
             </div>
             <Button
                 text={`${totalPrice}₴ - Заказать`}
-                href='#'
+                href='/order-product'
                 filled={true}
             />
         </div>

@@ -3,10 +3,14 @@ import { CustomerStateType, CustomerActionCreatorTypes, CustomerActionTypes } fr
 import { ProductType } from './productsReducer'
 
 const initialState = {
-   productCount: 0,
-   activeProduct: null as ProductType | null,
-   totalPrice: 0,
-   discount: false
+    productCount: 0,
+    activeProduct: null as ProductType | null,
+    totalPrice: 0,
+    discount: false,
+    customerData: {
+        name: null,
+        tel: null
+    }
 }
 
 const customerReducer = (state = initialState, action: CustomerActionCreatorTypes): CustomerStateType => {
@@ -33,6 +37,12 @@ const customerReducer = (state = initialState, action: CustomerActionCreatorType
             return {
                 ...state,
                 discount: action.payload            
+            }
+        }
+        case CustomerActionTypes.SET_CUSTOMER_DATA: {
+            return {
+                ...state,
+                customerData: action.payload            
             }
         }
         case CustomerActionTypes.INCREMENT_PRODUCT_COUNT: {

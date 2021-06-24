@@ -49,7 +49,7 @@
     text-align: center;
     @include adaptive-font(50, 30);
     color: #FFDF96;
-    font-family: 'Cormorant' serif;
+    font-family: 'Cormorant', serif;
     font-weight: 400;
     @include adaptive-value('margin-bottom', 30, 20);
 }
@@ -186,4 +186,21 @@
     width: 60px;
     height: 60px;
     @include adaptive-value('margin-bottom', 40, 15);
+}
+
+.confirm{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.confPoint{
+    color: #A4936F;
+}
+
+.confValue{
+    color: #FFDF96;
 }
