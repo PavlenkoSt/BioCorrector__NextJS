@@ -1,0 +1,76 @@
+@import '../../vars.scss';
+@import '../../mixins';
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.page{
+    width: 25px;
+    height: 25px;
+    color: #FFDF96;
+    font-size: 16px;
+    font-family: 'Roboto', serif;
+    cursor: pointer;
+    transition: color ease .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            color: #fdd578;
+        }
+    }
+}
+
+.break{
+    color: #FFDF96;
+    cursor: pointer;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            color: #fdd578;
+        }
+    }
+}
+
+.active{
+    color: #071F1E;
+    border-radius: 50%;
+    background-color: #FFDF96;
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            color: #071F1E;
+        }
+    }
+}
+
+.prev, 
+.next{
+    font-size: 18px;
+    color: #FFDF96;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    outline: none;
+
+    &.disabled{
+        opacity: .5;
+        cursor: default;
+    }
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            color: #fdd578;
+        }
+    }
+}

@@ -9,7 +9,6 @@ import Button from '../../../components/common/Button'
 const Reviews = () => {
     const reviews = useSelector(reviewsSelector)
     const renderedReviews = reviews
-        .reverse()
         .filter((review: ReviewType, i: number) => i < 2)
         .map((review: ReviewType) => <ReviewsItem
             key={review.id}

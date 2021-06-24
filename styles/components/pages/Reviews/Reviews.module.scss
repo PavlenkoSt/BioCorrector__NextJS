@@ -1,11 +1,15 @@
 @import '../../../vars';
 @import '../../../mixins';
 
+.main{
+    @include adaptive-value('margin-bottom', 60, 30);
+}
+
 .reviews {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    @include adaptive-value('margin-bottom', 120, 50);
+    @include adaptive-value('margin-bottom', 60, 30);
 
     @media(max-width: $media-tb){
         grid-template-columns: 1fr;

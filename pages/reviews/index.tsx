@@ -6,6 +6,7 @@ import ReviewsItem from '../../components/common/ReviewsItem'
 import { ReviewType } from '../../store/reducers/reviewsReducer'
 import { reviewsSelector } from '../../store/selectors/reviewsSelector'
 import s from '../../styles/components/pages/Reviews/Reviews.module.scss'
+import Pagination from '../../components/common/Pagination'
 
 const Reviews = () => {
     const reviews = useSelector(reviewsSelector)
@@ -17,13 +18,24 @@ const Reviews = () => {
         date={review.date}
     />)
 
+    const pageChangeHandler = () => {
+        console.log('get new portion reviews from server');
+    }
+
     return (
         <MainLayout title='Отзывы'>
             <h2 className='title'>Отзывы</h2>
             <Diviner sm={true} />
-            <div className={s.reviews}>
-                { renderedReviews }
+            <div className={s.main}>
+                <div className={s.reviews}>
+                    { renderedReviews }
+                </div>
+                <Pagination
+                    pageChangeHandler={pageChangeHandler}
+                    pageCount={10}
+                />
             </div>
+            <Diviner />
         </MainLayout>
     )
 }
