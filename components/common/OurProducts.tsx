@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import { useSelector } from "react-redux"
 import { ProductType } from "../../store/reducers/productsReducer"
 import { productsSelector } from "../../store/selectors/productsSelectors"
@@ -9,7 +9,7 @@ import s from '../../styles/components/common/OurProducts.module.scss'
 const OurProducts = () => {
     const products = useSelector(productsSelector)
 
-    // Таким образом показываем 4 самых новых продукта
+    // Таким образом показываем 4 самых новых продукта. На случай если их будет больше.
     const renderedProducts = products
         .reverse()
         .filter((product: ProductType, i: number) => i < 4)

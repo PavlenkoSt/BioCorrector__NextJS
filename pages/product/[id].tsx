@@ -28,7 +28,10 @@ const Product = () => {
             initialDispatchActions(product, 1, info.price)
         }
 
-        return () => initialDispatchActions(null, 0, 0)
+        return () => {
+            initialDispatchActions(null, 0, 0)
+            dispatch(customerActions.setDiscountStatus(false))
+        }
     }, [id])
 
     const products = useSelector(productsSelector)

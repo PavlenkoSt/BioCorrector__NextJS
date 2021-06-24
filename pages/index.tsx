@@ -7,6 +7,8 @@ import Diviner from '../components/common/Diviner'
 import WhatFor from '../components/pages/Home/WhatFor'
 import Reviews from '../components/pages/Home/Reviews'
 import Subscribe from '../components/pages/Home/Subscribe'
+import { Element} from 'react-scroll'
+
 
 const Home = () => {  
     return (
@@ -14,7 +16,9 @@ const Home = () => {
             <Intro/>
             <Slider/>
             <Diviner/>
-            <OurProducts/>
+            <Element name='products'>
+                <OurProducts/>
+            </Element>
             <Diviner/>
             <WhatFor/>
             <Diviner/>

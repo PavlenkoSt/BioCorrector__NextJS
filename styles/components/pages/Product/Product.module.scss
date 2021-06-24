@@ -5,8 +5,30 @@
     display: flex;
     gap: 50px;
     @include adaptive-value('margin-bottom', 120, 40);
+
+    @media(max-width: $media-big-tb){
+        flex-direction: column-reverse;
+    }
+
+    @media(max-width: $media-tb){
+        gap: 20px;
+    }
 }
 
 .galleryAndCounter{
     width: 45%;
+
+    @media(max-width: $media-big-tb){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+
+    @media(max-width: $media-tb){
+        grid-template-columns: 1fr;
+        width: 80%;
+        margin: 0 auto;
+    }
 }
