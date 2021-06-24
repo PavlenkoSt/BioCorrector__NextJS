@@ -1,5 +1,6 @@
 import { FC, ReactNode, useState } from 'react'
 import s from '../../styles/components/common/Header.module.scss'
+import Link from 'next/link'
 
 
 type HeaderPropsType = {
@@ -22,7 +23,9 @@ const Header: FC<HeaderPropsType> = ({ nav }) =>{
                         { nav }
                     </nav>
                     <div className={s.order}>
-                        <button className={s.orderBtn}><span className={s.orderBtn__content}>Заказать звонок</span></button>
+                        <Link href='/order-call'>
+                            <button className={s.orderBtn}><span className={s.orderBtn__content}>Заказать звонок</span></button>
+                        </Link>
                         <span className={s.tel}>+7 (925) 685-75-88</span>
                     </div>
                 </div>
