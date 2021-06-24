@@ -35,11 +35,11 @@
 }
 
 .title{
+    @include adaptive-value('margin-bottom', 20, 10);
     @include adaptive-font(50, 30);
     font-family: 'Cormorant', serif;
     color: #FFDF96;
     font-weight: 400;
-    @include adaptive-value('margin-bottom', 20, 10);
 
     @media(max-width: $media-tb){
         text-align: center;

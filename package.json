@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanem/react-nprogress": "^3.0.70",
     "@types/react-redux": "^7.1.16",
     "next": "11.0.0",
     "next-redux-wrapper": "^7.0.2",
