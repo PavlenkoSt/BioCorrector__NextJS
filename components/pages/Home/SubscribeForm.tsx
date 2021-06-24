@@ -13,7 +13,7 @@ const SubscribeForm = () => {
         required: true, 
         pattern: { 
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 
-            message: "Enter a valid e-mail address" 
+            message: "Email введен некорректно!" 
         } 
     }
 
@@ -38,7 +38,7 @@ const SubscribeForm = () => {
                 {
                     errors?.email ? <div className={s.errorForm}>
                         { errors?.email.type === 'required' && 'Поле не может быть пустым!' }
-                        { errors?.email.type === 'pattern' && 'Email введен некорректно!' }
+                        { errors?.email.type === 'pattern' && errors?.email?.message }
                     </div> : ''
                 }
                 <button className={s.btn} type="submit">Подписаться</button>

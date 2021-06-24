@@ -160,3 +160,17 @@
     font-size: 12px;
     text-align: center;
 }
+
+.error{
+    position: absolute;
+    bottom: -15px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    right: 0;
+    background-color: rgb(255, 136, 136);
+    text-align: center;
+    color: #000;
+    font-weight: 500;
+    font-size: 12px;
+    width: 100%;
+}
