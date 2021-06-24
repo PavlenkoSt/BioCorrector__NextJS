@@ -1,30 +1,29 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import s from '../../styles/components/common/Order.module.scss'
-import OrderForm from './OrderForm'
+import Button from '../../components/common/Button'
 
 
-type OrderPropsType = {
+type OrderSuccessPropsType = {
     title: string
     subtitle: string
-    copy: string
-    setIsOrdered: (isOrdered: boolean) => void
 }
 
-const Order: FC<OrderPropsType> = ({ title, subtitle, copy, setIsOrdered }) => {
+const OrderSuccess: FC<OrderSuccessPropsType> = ({ title, subtitle }) => {
     return (
         <div className={s.overlay}>
             <div className={s.window}>
                 <div className={s.wrapper}>
+                    <img className={s.img} src='/icons/success.png' alt='success'/>
                     <h2 className={s.title}>{ title }</h2>
                     <p className={s.subtitle}>{ subtitle }</p>
-                    <OrderForm
-                        setIsOrdered={setIsOrdered}
+                    <Button
+                        text='На главную'
+                        href='/'
                     />
-                    <div className={s.copy}>{ copy }</div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Order
+export default OrderSuccess

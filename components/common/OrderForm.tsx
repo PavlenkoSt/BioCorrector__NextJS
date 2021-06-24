@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import s from '../../styles/components/common/Order.module.scss'
-import React from 'react'
+import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
 
 
-const OrderForm = () => {
+type OrderFormPropsType = {
+    setIsOrdered: (isOrdered: boolean) => void
+}
+
+const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered }) => {
     const {
         register,
         handleSubmit,
@@ -21,7 +25,9 @@ const OrderForm = () => {
         }
     }
 
-    const onSubmit = (data: SubmitDataType) => alert(JSON.stringify(data));
+    const onSubmit = (data: SubmitDataType) => {
+        setIsOrdered(true)
+    }
 
     type SubmitDataType = {
         name: string,
@@ -31,6 +37,7 @@ const OrderForm = () => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
+            className={s.form}
         >
             <div className={s.inputs}>
                 <div className={s.inpItem}>

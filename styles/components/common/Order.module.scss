@@ -40,6 +40,9 @@
     position: relative;
     z-index: 1;
     overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .title{
@@ -58,6 +61,10 @@
     margin-top: 0;
     @include adaptive-value('margin-bottom', 40, 30);
 
+}
+
+.form{
+    width: 100%;
 }
 
 .inputs{
@@ -173,4 +180,10 @@
     font-weight: 500;
     font-size: 12px;
     width: 100%;
+}
+
+.img{
+    width: 60px;
+    height: 60px;
+    @include adaptive-value('margin-bottom', 40, 15);
 }
