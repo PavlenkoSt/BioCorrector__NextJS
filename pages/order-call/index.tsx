@@ -1,15 +1,11 @@
 import EmptyLayout from "../../components/layouts/EmptyLayout"
 import Order from '../../components/common/Order'
 import OrderSuccess from '../../components/common/OrderSuccess'
+import { useState } from "react"
 
-import { useEffect, useState } from "react"
 
 const OrderCall = () => {
     const [isOrdered, setIsOrdered] = useState(false)
-
-    useEffect(() => {
-        return () => setIsOrdered(false)
-    }, [])
 
     return (
         <EmptyLayout title='Заказать звонок'>
