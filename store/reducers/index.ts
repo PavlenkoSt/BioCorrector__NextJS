@@ -1,5 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper"
 import { AnyAction, combineReducers } from "redux"
+import customerReducer from "./cutomerReducer"
 import productsReducer from "./productsReducer"
 import questionsReducer from "./questionsReducer"
 import reviewsReducer from "./reviewsReducer"
@@ -8,7 +9,8 @@ import reviewsReducer from "./reviewsReducer"
 const combinedReducer = combineReducers({
   products: productsReducer,
   reviews: reviewsReducer,
-  questions: questionsReducer
+  questions: questionsReducer,
+  customer: customerReducer
 })
 
 const rootReducer = (state: any, action: AnyAction) => {

@@ -1,5 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import customerActions from '../../../store/actionCreators/cutomers'
 import { CharacteristicsType } from '../../../store/reducers/productsReducer'
+import { productCountSelector } from '../../../store/selectors/customerSelectors'
 import s from '../../../styles/components/pages/Product/ProductInfo.module.scss'
 
 
@@ -10,11 +13,13 @@ type ProductInfoPropsType = {
         inStock: boolean,
         chars: Array<CharacteristicsType>,
         desc: string
-    },
-    countProd: number
+    }
 }
 
-const ProductInfo: FC<ProductInfoPropsType> = ({ info, countProd }) => {
+const ProductInfo: FC<ProductInfoPropsType> = ({ info }) => {
+    const dispatch = useDispatch()
+    const productCount = useSelector(productCountSelector)
+
     const { title, price, inStock, chars, desc } = info
 
     const renderedChars = chars?.map((char, i) => <li key={i}>
@@ -22,9 +27,17 @@ const ProductInfo: FC<ProductInfoPropsType> = ({ info, countProd }) => {
         <span className={s.value}>{char.value}</span>
     </li>)
 
-    const saleMessage = countProd < 3 ? 
-        `Чтобы получить скидку в 10% закажите еще ${3 - countProd} ${3 - countProd === 1 ? 'устройство' : 'устройства'}.` :
+    const discountMessage = productCount < 3 ? 
+        `Чтобы получить скидку в 10% закажите еще ${3 - productCount} ${3 - productCount === 1 ? 'устройство' : 'устройства'}.` :
         'Скидка в 10% активна!'
+
+    useEffect(() => {
+        if(productCount >= 3){
+            dispatch(customerActions.setDiscountStatus(true))
+        }else{
+            dispatch(customerActions.setDiscountStatus(false))
+        }
+    }, [productCount])
 
     return (
         <div className={s.window}>
@@ -35,7 +48,7 @@ const ProductInfo: FC<ProductInfoPropsType> = ({ info, countProd }) => {
                     <div className={s.inStock}>{ inStock ? 'В наличии' : 'Нет в наличии'}</div>
                 </div>
                 <div className={s.message}>
-                    { saleMessage }
+                    { discountMessage }
                 </div>
                 <div className={s.block}>
                     <h3 className={s.pointTitle}>Характеристики</h3>

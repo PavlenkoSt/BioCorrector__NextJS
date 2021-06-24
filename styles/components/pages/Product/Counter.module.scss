@@ -1,0 +1,55 @@
+@import '../../../vars';
+@import '../../../mixins';
+
+.main{
+    margin-top: 20px;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    color: #FFDF96;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.counterActions{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 34px;
+    color: #FFDF96;
+    background-color: transparent;
+    border: 1px solid #FFDF96;
+    border-radius: 50%;
+
+    &:disabled{
+        opacity: .5;
+        cursor: default;
+    }
+
+    @media(min-width: $media-big-tb){
+        &:hover{
+            background-color: #FFDF96;
+            color: #333;
+        }
+    }
+}
+
+.count{
+    border: 1px solid #FFDF96;
+    border-radius: 32px;
+    color: #FFDF96;
+    font-size: 34px;
+    font-weight: 600;
+    height: 50px;
+    width: 75px;
+    text-align: center;
+}
