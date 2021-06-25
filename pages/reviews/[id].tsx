@@ -1,12 +1,9 @@
 import React from 'react'
-import MainLayout from '../../components/layouts/MainLayout'
-import NotFound from '../../components/common/NotFound'
 import { useSelector } from 'react-redux'
 import { reviewsSelector } from '../../store/selectors/reviewsSelector'
 import { useRouter } from 'next/dist/client/router'
 import { ReviewType } from '../../store/reducers/reviewsReducer'
-import OurProducts from '../../components/common/OurProducts'
-import ContentWindow from '../../components/common/ContentWindow'
+import UnitPage from '../../components/pagesTemplates/UnitPage'
 
 const Review = () => {
     const history = useRouter()
@@ -19,26 +16,18 @@ const Review = () => {
         || reviews.find((rev: ReviewType) => rev.id === 0)
 
     const next = {
-        author: nextReview.author,
+        title: nextReview.author,
         id: nextReview.id
     }
 
     return (
-        <MainLayout title='Страница продукта'>
-            {
-                !review ? <NotFound element='Отзыв' /> : (
-                    <>
-                        <ContentWindow 
-                            author={review.author}
-                            text={review.text}
-                            date={review.date}
-                            next={next}
-                        />
-                        <OurProducts />
-                    </>
-                )
-            }
-        </MainLayout>
+        <UnitPage
+            title='Отзывы'
+            element='Отзыв'
+            next={next}
+            unit={review}
+            type='reviews'
+        />
     )
 }
 

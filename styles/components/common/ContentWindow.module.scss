@@ -18,6 +18,7 @@
     font-family: 'Cormorant', serif;
     text-align: center;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .subtitle{
@@ -102,7 +103,20 @@
     margin-bottom: 5px;
 }
 
-.nextAutor{
+.nextTitle{
     font-size: 20px;
     margin-bottom: 15px;
+}
+
+.subtitleArticles{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @include adaptive-value('margin-bottom', 60, 20);
+    align-items: center;
+}
+
+.dateArticles{
+    color: #A4936F;
+    font-size: 12px;
 }

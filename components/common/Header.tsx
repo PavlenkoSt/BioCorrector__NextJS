@@ -26,7 +26,7 @@ const Header: FC<HeaderPropsType> = ({ nav }) =>{
                         <Link href='/order-call'>
                             <button className={s.orderBtn}><span className={s.orderBtn__content}>Заказать звонок</span></button>
                         </Link>
-                        <span className={s.tel}>+7 (925) 685-75-88</span>
+                        <Link href='tel:+79256857588'><span className={s.tel}>+7 (925) 685-75-88</span></Link>
                     </div>
                 </div>
             </div>

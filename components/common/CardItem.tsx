@@ -3,7 +3,7 @@ import s from '../../styles/components/common/CardItem.module.scss'
 import Link from 'next/link'
 import SocialSource from './SocialSource'
 
-type ReviewsItemPropsType = {
+type CardItemPropsType = {
     title?: string
     author?: string
     text: Array<string>
@@ -12,31 +12,31 @@ type ReviewsItemPropsType = {
     type: 'reviews' | 'articles'
 }
 
-const CardItem: FC<ReviewsItemPropsType> = ({ id, title, author, text, date, type }) => {
+const CardItem: FC<CardItemPropsType> = ({ id, title, author, text, date, type }) => {
     return (
         <Link href={`/${type}/${id}`}>
             <div className={s.item}>
                 <div className={s.itemInner}>
 
-                { type === 'reviews' && (
-                    <>
-                        <div className={s.author}>{author}</div>
-                        <div className={s.info}>
-                            <div className={s.date}>{date}</div>
-                            <SocialSource />
-                        </div>
-                    </>
-                )}
+                    { type === 'reviews' && (
+                        <>
+                            <div className={s.author}>{author}</div>
+                            <div className={s.info}>
+                                <div className={s.date}>{date}</div>
+                                <SocialSource />
+                            </div>
+                        </>
+                    )}
 
-                { type === 'articles' && (
-                    <>
-                        <div className={s.title}>{title}</div>
-                        <div className={s.articleInfo}>
-                            <div className={s.date}>{date}</div>
-                            <div className={s.diviner}></div>
-                        </div>
-                    </>
-                )}
+                    { type === 'articles' && (
+                        <>
+                            <div className={s.title}>{title}</div>
+                            <div className={s.articleInfo}>
+                                <div className={s.date}>{date}</div>
+                                <div className={s.diviner}></div>
+                            </div>
+                        </>
+                    )}
                     
                     <div className={s.text}>
                         {text.map((block, i) => <p key={i}>{block}</p>)}
