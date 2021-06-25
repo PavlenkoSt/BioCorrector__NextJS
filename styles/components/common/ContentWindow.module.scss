@@ -1,0 +1,108 @@
+@import '../../vars';
+@import '../../mixins.scss';
+
+.window{
+    background: linear-gradient(270deg, rgba(15, 11, 10, 0.3) 0%, #21140E 48.44%, rgba(8, 6, 5, 0.3) 100%);
+    border-radius: 16px;
+    padding: 60px 100px;
+    margin-bottom: 60px;
+    @include adaptive-value('padding-top', 60, 30);
+    @include adaptive-value('padding-bottom', 60, 30);
+    @include adaptive-value('padding-left', 100, 10);
+    @include adaptive-value('padding-right', 100, 10);
+}
+
+.title{
+    @include adaptive-font(30, 25);
+    color: #FFDF96;
+    font-family: 'Cormorant', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subtitle{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 20px;
+    @include adaptive-value('margin-bottom', 60, 20);
+
+    @media(max-width: $media-tb){
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+    }
+
+    @media(max-width: $media-mb){
+        gap: 10px;
+    }
+}
+
+.diviner{
+    width: 40%;
+    height: 1px;
+    background-color: #A4936F;
+
+    @media(max-width: $media-big-tb){
+        width: 30%;
+        order: 3;
+    }
+
+    @media(max-width: $media-tb){
+        width: 100%;
+    }
+}
+
+.date{
+    color: #A4936F;
+    font-size: 12px;
+    font-family: 'Roboto', serif;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    @media(max-width: $media-tb){
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+    }
+}
+
+.social{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 12px !important;
+
+    @media(max-width: $media-tb){
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+    }
+}
+
+.text{
+    @include adaptive-font(16, 14);
+    color: #A4936F;
+    text-align: justify;
+    @include adaptive-value('margin-bottom', 40, 30);
+}
+
+.nav{
+    text-align: center;
+    color: #FFDF96;
+    font-size: 12px;
+}
+
+.nextCom{
+    margin-bottom: 5px;
+}
+
+.nextAutor{
+    font-size: 20px;
+    margin-bottom: 15px;
+}

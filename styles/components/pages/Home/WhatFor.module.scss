@@ -4,13 +4,12 @@
 .cards{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 100px;
     justify-items: center;
     @include adaptive-value('margin-bottom', 120, 50);
+    @include adaptive-value('gap', 120, 50);
 
     @media(max-width: $media-mb){
         grid-template-columns: 1fr;
-        gap: 50px;
     }
 }
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import MainLayout from '../../components/layouts/MainLayout'
 import { ProductType } from '../../store/reducers/productsReducer'
 import { productsSelector } from '../../store/selectors/productsSelectors'
-import NotFound from '../../components/pages/Product/NotFound'
+import NotFound from '../../components/common/NotFound'
 import ProductInfo from '../../components/pages/Product/ProductInfo'
 import { useEffect, useState } from 'react'
 import s from '../../styles/components/pages/Product/Product.module.scss'
@@ -48,15 +48,13 @@ const Product = () => {
     return (
         <MainLayout title='Страница продукта'>
             {
-                !product ? <NotFound/> : (
+                !product ? <NotFound element='Продукт' /> : (
                     <div className={s.page}>
                         <div className={s.galleryAndCounter}>
                             <Gallery pictures={product?.pictures} />
                             <Counter/>
                         </div>
-                        <ProductInfo 
-                            info={ info }
-                        />
+                        <ProductInfo info={ info } />
                     </div>
                 )
             }
