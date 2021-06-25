@@ -1,11 +1,11 @@
-@import '../../../vars';
-@import '../../../mixins';
+@import '../../vars';
+@import '../../mixins';
 
 .main{
     @include adaptive-value('margin-bottom', 60, 30);
 }
 
-.reviews {
+.list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;

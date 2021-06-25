@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { ReviewType } from '../../../store/reducers/reviewsReducer'
 import { reviewsSelector } from '../../../store/selectors/reviewsSelector'
 import s from '../../../styles/components/pages/Home/Reviews.module.scss'
-import ReviewsItem from '../../common/ReviewsItem'
+import ReviewsItem from '../../common/CardItem'
 import Button from '../../../components/common/Button'
 
 
@@ -16,6 +16,7 @@ const Reviews = () => {
             author={review.author}
             text={review.text}
             date={review.date}
+            type='reviews'
         />)
 
     return (
