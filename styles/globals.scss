@@ -36,7 +36,7 @@ ol, ul{
 }
 
 body{
-  background: url(/bg.jpg) center repeat;
+  background: url(/bg.jpg);
   background-size: cover;
   position: relative;
 
@@ -61,6 +61,7 @@ body{
   justify-content: space-between;
   min-height: 100vh;
   height: 100%;
+  background: url(/bg-cover.png);
 }
 
 .container{

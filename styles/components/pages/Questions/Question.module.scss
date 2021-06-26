@@ -37,8 +37,8 @@
     position: relative;
     padding: 0 150px 0 30px;
     overflow: hidden;
-    height: 0;
-    transition: height ease .2s, padding ease .4s, opacity .4s;
+    max-height: 0;
+    transition: max-height ease .6s, padding ease .6s, opacity .6s;
     opacity: 0;
 
 
@@ -59,9 +59,8 @@
     &.show{
         padding: 25px 150px 25px 30px;
         opacity: 1;
-        height: 100%;
-        transition: height ease .2s, padding ease .4s, opacity .4s;
-
+        max-height: 800px;
+        
         @media(max-width: $media-big-tb){
             padding: 25px 30px;
         }

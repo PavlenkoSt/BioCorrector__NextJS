@@ -15,7 +15,9 @@ const Header: FC<HeaderPropsType> = ({ nav }) =>{
         <header className={s.header}>
             <div className="container">
                 <div className={s.main}>
-                    <img src='/icons/logo.svg' alt='bio corrector' className={s.logo}/>
+                   <Link href='/'>
+                        <img src='/icons/logo.svg' alt='bio corrector' className={s.logo}/>
+                   </Link>
                     <div className={`${s.burger} ${menuOpen ? s.active : ''}`} onClick={toggleBurger}>
                         <div className={s.burger__line}></div>
                     </div>

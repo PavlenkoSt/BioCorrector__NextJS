@@ -3,6 +3,7 @@ import Header from '../common/Header'
 import Footer from '../common/Footer'
 import Link from 'next/link'
 import HeadComponent from '../common/Head'
+import { Parallax } from "react-parallax"
 
 type MainLayoutPropsType = {
     title: string
@@ -35,11 +36,14 @@ const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
 
     return (
         <div className='wrapper'>
+
+        <Parallax bgImage={'/stars.png'} strength={500}>
             <HeadComponent title={title}/>
             <Header 
                 nav={ renderedNavLinks }
             />
             <main className='main'>
+            
                 <div className="container">
                     { children }
                 </div>
@@ -48,7 +52,9 @@ const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
                 nav={ renderedNavLinks }
                 socials={ renderSocialLinks }
             />
+        </Parallax>
         </div>
+
     )
 }
 

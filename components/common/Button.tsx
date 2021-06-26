@@ -7,12 +7,13 @@ type ButtonPropsType = {
     href: string
     text: string
     filled?: boolean
+    prevent?: boolean
 }
 
-const Button: FC<ButtonPropsType> = ({ href, text, filled = false }) => {
+const Button: FC<ButtonPropsType> = ({ href, text, filled = false, prevent = false }) => {
     return (
         <Link href={href}>
-            <div className={`${s.btn} ${filled ? s.filled : ''}`}>
+            <div onClick={ prevent ? (e) => e.preventDefault() : () => {}} className={`${s.btn} ${filled ? s.filled : ''}`}>
                 { text }
             </div>
         </Link>
