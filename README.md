@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Biocorrector Website
+
+This is a website about biocorrectors. It was developed using next js technology. 
 
 ## Getting Started
 
-First, run the development server:
+If you are going to modify this project, then first start the development server:
 
 ```bash
 npm run dev
@@ -10,25 +12,26 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.<br/>
+Make the necessary edits and run the project build command in production:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+# or
+yarn build
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+The production version is now in the .next directory. You can run the production version locally using the command:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run start
+# or
+yarn start
+```
 
-## Learn More
+Thereafter open [http://localhost:3000](http://localhost:3000) with your browser to see the result.<br/>
+By running this command, you will receive a message in the console with information about the local address and other informations.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you need to deploy a project on the Versel server, check out [this page](https://nextjs.org/learn/basics/deploying-nextjs-app/deploy) from the official NextJS documentation. This project supports all hostings that support nodeJS. To deploy to another hosting, use the instructions on the hosting site.

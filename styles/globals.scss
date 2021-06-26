@@ -204,3 +204,13 @@ body{
     width: 99%;
   }
 }
+
+
+// react-parallax =======
+
+.react-parallax-content{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

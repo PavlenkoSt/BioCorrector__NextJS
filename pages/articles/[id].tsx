@@ -1,28 +1,31 @@
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import UnitPage from '../../components/pagesTemplates/UnitPage'
 import { ArticleType } from '../../store/reducers/articlesReducer'
-import { articlesSelector } from '../../store/selectors/articlesSelectors'
+import { NextArticleSelector, targetArticleSelector } from '../../store/selectors/articlesSelectors'
+import { getArticleThunk } from '../../store/thunks/articles'
 
 const Article = () => {
+    const dispatch = useDispatch()
     const history = useRouter()
-    const id = history.query.id
+    const id = history.query.id as string
 
-    const articles = useSelector(articlesSelector)
-    const article = articles.find((art: ArticleType) => id && art.id === +id)
+    useEffect(() => {
+        dispatch(getArticleThunk(id))
+    }, [id])
 
-    const nextArticle = articles.find((rev: ArticleType) => id && rev.id === +id + 1) 
-        || articles.find((rev: ArticleType) => rev.id === 0)
+    const article = useSelector(targetArticleSelector)
+    const nextArticle = useSelector(NextArticleSelector)
 
     const next = {
-        title: nextArticle.title,
-        id: nextArticle.id
+        title: nextArticle?.title,
+        id: nextArticle?.id
     }
 
     return (
         <UnitPage
-            title='Статьи'
+            title='Статья'
             element='Статья'
             type='articles'
             unit={article}

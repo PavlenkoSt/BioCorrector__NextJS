@@ -47,7 +47,7 @@ const ContentWindow: FC<ContentWindowPropsType>  = ({ title, date, text, next, t
             )}
             
             <div className={s.text}>
-                { text.map((p, i) => <p key={i}>{ p }</p>) }
+                { text?.map((p, i) => <p key={i}>{ p }</p>) }
             </div>
             <div className={s.nav}>
                 <div className={s.nextCom}>{ navLabel }</div>
