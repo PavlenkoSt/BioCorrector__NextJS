@@ -1,4 +1,3 @@
-import { QuestionType } from './../../../store/reducers/questionsReducer'
 import questions from "../../../data/questions"
 import mergeDataForPagination from "../../../helpers/mergeDataForPagination"
 

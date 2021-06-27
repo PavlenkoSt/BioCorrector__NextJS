@@ -32,6 +32,7 @@ const Reviews = () => {
             listItems={renderedReviews}
             title='Отзывы'
             pageChangeHandler={pageChangeHandler}
+            pageCount={10}
         />
     )
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Diviner from '../../components/common/Diviner'
 import MainLayout from '../../components/layouts/MainLayout'
@@ -10,6 +10,7 @@ import Pagination from '../../components/common/Pagination'
 import { getQuestionsThunk } from '../../store/thunks/questions'
 import { Context } from 'next-redux-wrapper'
 import fetcher from '../../helpers/fetcher'
+import questionsActions from '../../store/actionCreators/questions'
 
 
 type QuestionPropsType = {
@@ -29,6 +30,8 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
         answear={quest.answear}
     />)
       
+    //@ts-ignore
+    useEffect(() => () => dispatch(questionsActions.setQuestionsSuccess([])), [])
     
     const pageChangeHandler = (e: any) => dispatch(getQuestionsThunk(e.selected + 1))
 
@@ -51,8 +54,8 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
 }
 
 export const getServerSideProps = async (context: Context) => {
-    const { data, pageCount } = await fetcher('http://localhost:3000/api/questions?limit=4&page=1')
-    
+    const { data, pageCount } = await fetcher('http://localhost:3000/api/questions')
+
     return {
         props: {
             questions: data,

@@ -3,7 +3,7 @@ import { QuestionsActionTypes } from "../types/questions"
 
 
 const questionsActions = {
-    setProductsSuccess: (payload: Array<QuestionType>) => ({ type: QuestionsActionTypes.SET_QUESTIONS, payload }),
+    setQuestionsSuccess: (payload: Array<QuestionType>) => ({ type: QuestionsActionTypes.SET_QUESTIONS, payload }),
 }
 
 export default questionsActions

@@ -8,10 +8,11 @@ import s from '../../styles/components/pagesTemplates/ListPage.module.scss'
 type ListPagePropsType = {
     title: string
     listItems: Array<ReactNode>
-    pageChangeHandler: () => void
+    pageChangeHandler: Function
+    pageCount: number
 }
 
-const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler }) => {
+const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler, pageCount }) => {
     return (
         <MainLayout title={ title }>
             <h2 className='title'>{ title }</h2>
@@ -22,7 +23,7 @@ const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler }
                 </div>
                 <Pagination
                     pageChangeHandler={pageChangeHandler}
-                    pageCount={10}
+                    pageCount={pageCount}
                 />
             </div>
             <Diviner />
