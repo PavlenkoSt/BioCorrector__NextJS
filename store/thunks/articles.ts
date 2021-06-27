@@ -1,6 +1,7 @@
 import fetcher from "../../helpers/fetcher"
 import articlesActions from "../actionCreators/articles"
-import { ThunkType } from "../reducers/articlesReducer"
+import { ThunkType } from "../reducers"
+
 
 export const getArticlesThunk = (): ThunkType => async dispatch => {
     const data = await fetcher('/api/articles')
@@ -22,10 +23,8 @@ export const getArticleThunk = (id: string): ThunkType => async dispatch => {
 }
 
 const getNextArticleThunk = (id: string): ThunkType => async dispatch => {
-
     if(id){
         const data = await fetcher(`/api/articles/${id}`)
-        console.log('work');
         
         if(Object.keys(data).length !== 0){
             await dispatch(articlesActions.setNextArticleSuccess(data))

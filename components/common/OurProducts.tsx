@@ -1,12 +1,19 @@
-import React, { FC } from "react"
-import { useSelector } from "react-redux"
+import React, { FC, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { ProductType } from "../../store/reducers/productsReducer"
 import { productsSelector } from "../../store/selectors/productsSelectors"
 import OurProductsItem from "./OurProductsItem"
 import s from '../../styles/components/common/OurProducts.module.scss'
+import { getProductsThunk } from "../../store/thunks/products"
 
 
 const OurProducts = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getProductsThunk())
+    }, [])
+
     const products = useSelector(productsSelector)
 
     const renderedProducts = products

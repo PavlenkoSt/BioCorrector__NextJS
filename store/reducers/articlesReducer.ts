@@ -1,14 +1,13 @@
-import { ArticlesActionCreatorTypes, ArticlesActionTypes } from './../types/articles'
-import { AnyAction, Store } from "redux"
-import { ThunkAction } from "redux-thunk"
+import { ArticlesActionCreatorTypes, ArticlesActionTypes, ArticlesrStateType } from './../types/articles'
+
 
 const initialState = {
-    articles: [],
-    targetArticle: {},
-    nextArticle: {}
+    articles: [] as Array<ArticleType>,
+    targetArticle: {} as ArticleType,
+    nextArticle: {} as ArticleType
 }
 
-const articlesReducer = (state = initialState, action: ArticlesActionCreatorTypes) => {
+const articlesReducer = (state = initialState, action: ArticlesActionCreatorTypes): ArticlesrStateType => {
     switch(action.type){
         case ArticlesActionTypes.SET_ARTICLES: {
             return {
@@ -36,10 +35,6 @@ const articlesReducer = (state = initialState, action: ArticlesActionCreatorType
 }
 
 export default articlesReducer
-
-
-
-export type ThunkType = ThunkAction<void, Store, unknown, AnyAction>
 
 export type ArticleType = {
     id: number

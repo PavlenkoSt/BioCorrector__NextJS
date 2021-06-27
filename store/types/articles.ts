@@ -21,6 +21,12 @@ type setNextArticle = {
     payload: ArticleType
 }
 
+export type ArticlesrStateType = {
+    articles: Array<ArticleType>,
+    targetArticle: ArticleType,
+    nextArticle: ArticleType
+}
+
 export type ArticlesActionCreatorTypes = 
     setArticles |
     setArticle | 

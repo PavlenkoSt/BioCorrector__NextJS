@@ -2,7 +2,6 @@ import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import UnitPage from '../../components/pagesTemplates/UnitPage'
-import { ArticleType } from '../../store/reducers/articlesReducer'
 import { NextArticleSelector, targetArticleSelector } from '../../store/selectors/articlesSelectors'
 import { getArticleThunk } from '../../store/thunks/articles'
 
@@ -12,7 +11,9 @@ const Article = () => {
     const id = history.query.id as string
 
     useEffect(() => {
-        dispatch(getArticleThunk(id))
+        if(id){
+            dispatch(getArticleThunk(id))
+        }
     }, [id])
 
     const article = useSelector(targetArticleSelector)
@@ -23,12 +24,14 @@ const Article = () => {
         id: nextArticle?.id
     }
 
+    const unit = Object.keys(article).length !== 0 ? article : null
+
     return (
         <UnitPage
             title='Статья'
             element='Статья'
             type='articles'
-            unit={article}
+            unit={unit}
             next={next}
         />
     )

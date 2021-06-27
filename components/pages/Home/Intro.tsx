@@ -9,15 +9,16 @@ const Intro = () => {
                 <img src="/icons/logo.svg" alt="biocorrector" className={s.logo}/>
                 <h2 className={s.title}>Защита от внешнего энергетического воздействия</h2>
                 <h3 className={s.subtitle}>Подключек, гипноза, чужеродных лярв и потери энергии</h3>
-                <Link 
-                    smooth={true} 
+                <Link
+                    smooth={true}
                     to='products'
                     offset={-80}
-                > 
+                >
                     <Button
                         href="#"
                         text="Выбрать биокорректор"
                         filled={true}
+                        prevent={true}
                     />
                 </Link>
             </div>

@@ -1,9 +1,7 @@
 import articles from "../../../data/articles"
 
 
-const getArticles = (req: Request, res: Response) => {
-    
-    //@ts-ignore
+const getArticles = (req: Request, res: any) => {
     res.status(200).json(articles)
 }
 
