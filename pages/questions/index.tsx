@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Diviner from '../../components/common/Diviner'
 import MainLayout from '../../components/layouts/MainLayout'
@@ -8,22 +8,29 @@ import Question from '../../components/pages/Questions/Question'
 import s from '../../styles/components/pages/Questions/Question.module.scss'
 import Pagination from '../../components/common/Pagination'
 import { getQuestionsThunk } from '../../store/thunks/questions'
+import { Context } from 'next-redux-wrapper'
+import fetcher from '../../helpers/fetcher'
 
-const Questions = () => {
+
+type QuestionPropsType = {
+    questions: Array<QuestionType>
+    pageCount: number
+}
+
+const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
     const dispatch = useDispatch()
-    const questions = useSelector(questionsSelector)
+    const questionsFromStore = useSelector(questionsSelector)
 
-    useEffect(() => {
-        dispatch(getQuestionsThunk())
-    }, [])
+    const questionsTargetPortion = Object.keys(questionsFromStore).length !== 0 ? questionsFromStore : questions
 
-    const renderedQuestions = questions.map((quest: QuestionType) => <Question
+    const renderedQuestions = questionsTargetPortion?.map((quest: QuestionType) => <Question
         key={quest.id}
         question={quest.question}
         answear={quest.answear}
     />)
+      
     
-    const pageChangeHandler = () => console.log('page changed')
+    const pageChangeHandler = (e: any) => dispatch(getQuestionsThunk(e.selected + 1))
 
     return (
         <MainLayout title='Вопросы и ответы'>
@@ -35,12 +42,23 @@ const Questions = () => {
             <div className={s.paginationContainer}>
                 <Pagination
                     pageChangeHandler={pageChangeHandler}
-                    pageCount={10}
+                    pageCount={pageCount}
                 />
             </div>
             <Diviner/>
         </MainLayout>
     )
+}
+
+export const getServerSideProps = async (context: Context) => {
+    const { data, pageCount } = await fetcher('http://localhost:3000/api/questions?limit=4&page=1')
+    
+    return {
+        props: {
+            questions: data,
+            pageCount
+        }
+    }
 }
 
 export default Questions
