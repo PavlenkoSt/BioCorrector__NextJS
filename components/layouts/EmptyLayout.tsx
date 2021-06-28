@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react"
 import HeadComponent from '../common/Head'
+import s from '../../styles/components/common/Order.module.scss'
 
 
 type EmptyLayoutPropsType = {
@@ -12,7 +13,13 @@ const EmptyLayout: FC<EmptyLayoutPropsType> = ({ title, children }) => {
         <div className='wrapper'>
             <HeadComponent title={title}/>
             <div className="container">
-                { children }
+                <div className={s.overlay}>
+                    <div className={s.window}>
+                        <div className={s.wrapper}>
+                            { children }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

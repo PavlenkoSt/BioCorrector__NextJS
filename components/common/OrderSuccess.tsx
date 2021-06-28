@@ -32,20 +32,16 @@ const OrderSuccess: FC<OrderSuccessPropsType> = ({ title, subtitle, type }) => {
     )
 
     return (
-        <div className={s.overlay}>
-            <div className={s.window}>
-                <div className={s.wrapper}>
-                    <img className={s.img} src='/icons/success.png' alt='success'/>
-                    <h2 className={s.title}>{ title }</h2>
-                    { subtitleElement }
-                    { customerData }
-                    <Button
-                        text='На главную'
-                        href='/'
-                    />
-                </div>
-            </div>
-        </div>
+        <>
+            <img className={s.img} src='/icons/success.png' alt='success'/>
+            <h2 className={s.title}>{ title }</h2>
+            { subtitleElement }
+            { customerData }
+            <Button
+                text='На главную'
+                href='/'
+            />
+        </>
     )
 }
 
