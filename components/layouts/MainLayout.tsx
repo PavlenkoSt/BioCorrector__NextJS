@@ -5,6 +5,8 @@ import Link from 'next/link'
 import HeadComponent from '../common/Head'
 import { Parallax } from "react-parallax"
 
+
+
 type MainLayoutPropsType = {
     title: string
     children: ReactNode

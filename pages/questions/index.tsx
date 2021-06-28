@@ -8,7 +8,6 @@ import Question from '../../components/pages/Questions/Question'
 import s from '../../styles/components/pages/Questions/Question.module.scss'
 import Pagination from '../../components/common/Pagination'
 import { getQuestionsThunk } from '../../store/thunks/questions'
-import { Context } from 'next-redux-wrapper'
 import fetcher from '../../helpers/fetcher'
 import questionsActions from '../../store/actionCreators/questions'
 import WithTransition from '../../HOC/WithTransition'
@@ -58,7 +57,7 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
     )
 }
 
-export const getServerSideProps = async (context: Context) => {
+export const getServerSideProps = async () => {
     const { data, pageCount } = await fetcher('http://localhost:3000/api/questions')
 
     return {

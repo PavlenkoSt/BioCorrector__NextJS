@@ -22,6 +22,8 @@ const articlesReducer = (state = initialState, action: ArticlesActionCreatorType
 
 export default articlesReducer
 
+
+
 export type ArticleType = {
     id: number
     title: string

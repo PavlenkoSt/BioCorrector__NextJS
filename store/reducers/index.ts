@@ -3,13 +3,11 @@ import { AnyAction, combineReducers, Store } from "redux"
 import { ThunkAction } from "redux-thunk"
 import articlesReducer from "./articlesReducer"
 import customerReducer from "./cutomerReducer"
-import productsReducer from "./productsReducer"
 import questionsReducer from "./questionsReducer"
 import reviewsReducer from "./reviewsReducer"
 
 
 const combinedReducer = combineReducers({
-    products: productsReducer,
     reviews: reviewsReducer,
     questions: questionsReducer,
     customer: customerReducer,

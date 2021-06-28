@@ -9,7 +9,7 @@ type FieldRadioCreatorPropsType = {
     label: string
 }
 
-const FieldRadioCreator: FC<FieldRadioCreatorPropsType> = ({ children, state, setState, value, label }) => {
+const FieldRadioCreator: FC<FieldRadioCreatorPropsType> = ({ state, setState, value, label }) => {
     return (
         <div 
             onClick={() => setState(value)} 

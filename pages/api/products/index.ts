@@ -1,7 +1,8 @@
+import { NextApiRequest, NextApiResponse } from "next"
 import products from "../../../data/products"
 
 
-const getProducts = (req: Request, res: any) => {
+const getProducts = (req: NextApiRequest, res: NextApiResponse) => {
     res.status(200).json(products)
 }
 

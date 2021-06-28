@@ -4,7 +4,7 @@ import s from '../../styles/components/common/Pagination.module.scss'
 
 
 type PaginationPropsType = {
-    pageChangeHandler: any
+    pageChangeHandler: (selectedItem: { selected: number }) => void
     pageCount: number
 }
 

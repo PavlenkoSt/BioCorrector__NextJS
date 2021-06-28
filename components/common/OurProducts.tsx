@@ -1,10 +1,7 @@
-import React, { FC, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { ProductType } from "../../store/reducers/productsReducer"
-import { productsSelector } from "../../store/selectors/productsSelectors"
+import React, { FC } from "react"
+import { ProductType } from "../../store/reducers/cutomerReducer"
 import OurProductsItem from "./OurProductsItem"
 import s from '../../styles/components/common/OurProducts.module.scss'
-import { getProductsThunk } from "../../store/thunks/products"
 
 
 type OurProductsPropsType = {
@@ -12,14 +9,7 @@ type OurProductsPropsType = {
 }
 
 const OurProducts: FC<OurProductsPropsType> = ({ products }) => {
-    // const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getProductsThunk())
-    // }, [])
-
-    // const products = useSelector(productsSelector)
-
+    
     const renderedProducts = products
         .filter((product: ProductType, i: number) => i < 4)
         .map((product: ProductType) => <OurProductsItem

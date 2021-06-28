@@ -1,12 +1,9 @@
+import { NextApiRequest, NextApiResponse } from "next"
 import articles from "../../../data/articles"
 
-type RequestType = {
-    query: {
-        id: string
-    }
-}
 
-const getArticle = ({ query: { id } }: RequestType, res: any) => {
+
+const getArticle = ({ query: { id } }: NextApiRequest, res: NextApiResponse) => {
     const article = articles.find((article) => article.id === +id)
     
     if (article) {

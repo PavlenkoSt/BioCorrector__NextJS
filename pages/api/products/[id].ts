@@ -1,12 +1,8 @@
 import products from "../../../data/products"
+import { NextApiRequest, NextApiResponse } from "next"
 
-type RequestType = {
-    query: {
-        id: string
-    }
-}
 
-const getProduct = ({ query: { id } }: RequestType, res: any) => {
+const getProduct = ({ query: { id } }: NextApiRequest, res: NextApiResponse) => {
     const article = products.find((product) => product.id === +id)
     
     if (article) {

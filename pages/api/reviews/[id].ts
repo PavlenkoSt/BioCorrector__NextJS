@@ -1,12 +1,8 @@
 import reviews from '../../../data/reviews'
+import { NextApiRequest, NextApiResponse } from "next"
 
-type RequestType = {
-    query: {
-        id: string
-    }
-}
 
-const getReview = ({ query: { id } }: RequestType, res: any) => {
+const getReview = ({ query: { id } }: NextApiRequest, res: NextApiResponse) => {
     const review = reviews.find((review) => review.id === +id)
     
     if (review) {

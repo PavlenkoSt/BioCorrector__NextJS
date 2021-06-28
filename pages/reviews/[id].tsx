@@ -3,7 +3,7 @@ import UnitPage from '../../components/pagesTemplates/UnitPage'
 import fetcher from '../../helpers/fetcher'
 import isEmptyObject from '../../helpers/isEmptyObject'
 import unitFetchCombine from '../../helpers/unitFetchCombine'
-import { ProductType } from '../../store/reducers/productsReducer'
+import { ProductType } from '../../store/reducers/cutomerReducer'
 import { ReviewType } from '../../store/reducers/reviewsReducer'
 
 

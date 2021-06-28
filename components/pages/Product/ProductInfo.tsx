@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import customerActions from '../../../store/actionCreators/cutomers'
-import { CharacteristicsType } from '../../../store/reducers/productsReducer'
+import { CharacteristicsType } from '../../../store/reducers/cutomerReducer'
 import { productCountSelector } from '../../../store/selectors/customerSelectors'
 import s from '../../../styles/components/pages/Product/ProductInfo.module.scss'
 

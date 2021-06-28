@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import MainLayout from '../../components/layouts/MainLayout'
-import { ProductType } from '../../store/reducers/productsReducer'
+import { ProductType } from '../../store/reducers/cutomerReducer'
 import NotFound from '../../components/common/NotFound'
 import ProductInfo from '../../components/pages/Product/ProductInfo'
 import { FC, useEffect } from 'react'

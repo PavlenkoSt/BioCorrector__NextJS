@@ -1,6 +1,6 @@
 import calculateDiscont from '../../helpers/calculateDiscont'
 import { CustomerStateType, CustomerActionCreatorTypes, CustomerActionTypes } from '../types/customer'
-import { ProductType } from './productsReducer'
+
 
 const initialState = {
     productCount: 0,
@@ -75,3 +75,21 @@ const customerReducer = (state = initialState, action: CustomerActionCreatorType
 }
 
 export default customerReducer
+
+
+
+export type ProductType = {
+    id: number,
+    name: string
+    description: string
+    characteristics: Array<CharacteristicsType>
+    price: number
+    shortDescription: string
+    pictures: Array<string>
+    inStock: boolean
+}
+
+export type CharacteristicsType = {
+    point: string
+    value: string
+}

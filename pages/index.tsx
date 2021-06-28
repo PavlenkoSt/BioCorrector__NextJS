@@ -10,7 +10,7 @@ import Subscribe from '../components/pages/Home/Subscribe'
 import { Element} from 'react-scroll'
 import fetcher from '../helpers/fetcher'
 import { ReviewType } from '../store/reducers/reviewsReducer'
-import { ProductType } from '../store/reducers/productsReducer'
+import { ProductType } from '../store/reducers/cutomerReducer'
 
 
 type HomePropsType = {

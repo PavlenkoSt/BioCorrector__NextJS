@@ -4,7 +4,7 @@ import fetcher from '../../helpers/fetcher'
 import isEmptyObject from '../../helpers/isEmptyObject'
 import unitFetchCombine from '../../helpers/unitFetchCombine'
 import { ArticleType } from '../../store/reducers/articlesReducer'
-import { ProductType } from '../../store/reducers/productsReducer'
+import { ProductType } from '../../store/reducers/cutomerReducer'
 
 
 type ArticlesPropsType = {

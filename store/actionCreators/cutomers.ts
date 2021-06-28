@@ -1,5 +1,5 @@
 import { CustomerDataType } from './../types/customer'
-import { ProductType } from "../reducers/productsReducer"
+import { ProductType } from "../reducers/cutomerReducer"
 import { CustomerActionTypes } from "../types/customer"
 
 const customerActions = {

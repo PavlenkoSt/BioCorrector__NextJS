@@ -1,4 +1,4 @@
-import { QuestionType } from './../reducers/questionsReducer';
+import { QuestionType } from './../reducers/questionsReducer'
 
 export enum QuestionsActionTypes {
     SET_QUESTIONS = 'SET_QUESTIONS',

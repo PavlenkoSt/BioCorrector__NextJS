@@ -1,4 +1,4 @@
-import { ProductType } from "../reducers/productsReducer"
+import { ProductType } from "../reducers/cutomerReducer"
 
 export enum CustomerActionTypes {
     SET_PRODUCT_COUNT = 'SET_PRODUCT_COUNT',

@@ -1,6 +1,6 @@
-const mergeDataForPagination = (data: Array<any>, limit: number = 4) => {
-    const pageData: Array<any> = []
-    let subarr: Array<any> = []
+const mergeDataForPagination = (data: Array<Object>, limit: number = 4) => {
+    const pageData: Array<Object> = []
+    let subarr: Array<Object> = []
 
     data.forEach((dataItem, i) => {
         if(subarr.length < limit){

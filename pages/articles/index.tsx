@@ -5,7 +5,6 @@ import { articlesSelector } from '../../store/selectors/articlesSelectors'
 import CardItem from '../../components/common/CardItem'
 import { ArticleType } from '../../store/reducers/articlesReducer'
 import { getArticlesThunk } from '../../store/thunks/articles'
-import { Context } from 'next-redux-wrapper'
 import fetcher from '../../helpers/fetcher'
 import articlesActions from '../../store/actionCreators/articles'
 import isEmptyObject from '../../helpers/isEmptyObject'
@@ -46,7 +45,7 @@ const Articles: FC<ArticlesPropsType> = ({ articles, pageCount }) => {
     )
 }
 
-export const getServerSideProps = async (context: Context) => {
+export const getServerSideProps = async () => {
     const { data, pageCount } = await fetcher('http://localhost:3000/api/articles')
 
     return {

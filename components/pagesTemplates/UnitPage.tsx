@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout'
 import NotFound from '../common/NotFound'
 import ContentWindow from '../common/ContentWindow'
 import OurProducts from '../common/OurProducts'
-import { ProductType } from '../../store/reducers/productsReducer'
+import { ProductType } from '../../store/reducers/cutomerReducer'
 
 
 type UnitPagePropsType = {

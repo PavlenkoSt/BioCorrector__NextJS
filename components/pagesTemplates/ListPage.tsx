@@ -9,7 +9,7 @@ import WithTransition from '../../HOC/WithTransition'
 type ListPagePropsType = {
     title: string
     listItems: Array<ReactNode>
-    pageChangeHandler: Function
+    pageChangeHandler: (selectedItem: { selected: number }) => void
     pageCount: number
 }
 
