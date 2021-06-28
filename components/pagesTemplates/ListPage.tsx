@@ -11,11 +11,13 @@ type ListPagePropsType = {
     listItems: Array<ReactNode>
     pageChangeHandler: (selectedItem: { selected: number }) => void
     pageCount: number
+    description: string
+    keywords: string
 }
 
-const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler, pageCount }) => {
+const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler, pageCount, description, keywords }) => {
     return (
-        <MainLayout title={ title }>
+        <MainLayout title={ title } description={description} keywords={keywords}>
             <h2 className='title'>{ title }</h2>
             <Diviner sm={true} />
             <div className={s.main}>

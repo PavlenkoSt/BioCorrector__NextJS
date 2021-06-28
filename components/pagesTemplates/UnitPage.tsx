@@ -16,14 +16,20 @@ type UnitPagePropsType = {
     title: string
     element: string
     products: Array<ProductType>
+    description: string
+    keywords: string
 }
 
-const UnitPage: FC<UnitPagePropsType> = ({ unit, type, next, title, element, products }) => {
+const UnitPage: FC<UnitPagePropsType> = ({ unit, type, next, title, element, products, description, keywords }) => {
 
     const contentTitle = type === 'reviews' ? unit?.author : type === 'articles' ? unit?.title : null
 
     return (
-        <MainLayout title={title}>
+        <MainLayout 
+            title={title}
+            description={description} 
+            keywords={keywords} 
+        >
             {
                 !unit ? <NotFound element={element} /> : (
                     <>

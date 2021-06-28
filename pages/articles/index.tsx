@@ -41,6 +41,8 @@ const Articles: FC<ArticlesPropsType> = ({ articles, pageCount }) => {
             listItems={ renderedArticles }
             pageChangeHandler={pageChangeHandler}
             pageCount={pageCount}
+            description='Статьи about biocorrectors...'
+            keywords='Статьи Статьи Статьи'
         />
     )
 }

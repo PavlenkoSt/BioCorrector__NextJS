@@ -18,7 +18,11 @@ const OrderProductPage = () => {
     const isNotChosen = productCount === 0 || !activeProduct || isEmptyObject(activeProduct)
 
     return (
-        <EmptyLayout title='Заказать товар'>
+        <EmptyLayout 
+            title='Заказать товар'
+            description='Купить биокор'
+            keywords='Купить, ..., ....'
+        >
             {
                 isNotChosen
                     ? <NotChosen/>

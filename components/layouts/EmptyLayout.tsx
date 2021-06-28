@@ -6,12 +6,18 @@ import s from '../../styles/components/common/Order.module.scss'
 type EmptyLayoutPropsType = {
     title: string
     children: ReactNode
+    description: string
+    keywords: string
 }
 
-const EmptyLayout: FC<EmptyLayoutPropsType> = ({ title, children }) => {
+const EmptyLayout: FC<EmptyLayoutPropsType> = ({ title, description, keywords, children }) => {
     return (
         <div className='wrapper'>
-            <HeadComponent title={title}/>
+            <HeadComponent 
+                title={title}
+                description={description}
+                keywords={keywords}
+            />
             <div className="container">
                 <div className={s.overlay}>
                     <div className={s.window}>

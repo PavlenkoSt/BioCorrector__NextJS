@@ -20,6 +20,8 @@ type ReviewPropsType = {
 const Review: FC<ReviewPropsType> = ({ review, nextReviewData, products }) => {
     const unit = isEmptyObject(review) ? null : review
 
+    const descSEO = review.text.reduce((acc, cur) => acc + cur, '')
+
     return (
         <UnitPage
             title='Отзывы'
@@ -28,6 +30,8 @@ const Review: FC<ReviewPropsType> = ({ review, nextReviewData, products }) => {
             unit={unit}
             type='reviews'
             products={products}
+            description={descSEO}
+            keywords='Отзывы, биокоректоры, ....'
         />
     )
 }

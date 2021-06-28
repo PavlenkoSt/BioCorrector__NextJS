@@ -8,7 +8,11 @@ const OrderCallPage = () => {
     const [isOrdered, setIsOrdered] = useState(false)
 
     return (
-        <EmptyLayout title='Заказать звонок'>
+        <EmptyLayout 
+            title='Заказать звонок'
+            description='Звонок - ....'
+            keywords='Звонок Звонок Звонок'
+        >
             { 
                 !isOrdered ? (
                     <OrderCall

@@ -33,7 +33,11 @@ const Product: FC<ProductPropsType> = ({ product }) => {
     } 
     
     return (
-        <MainLayout title='Страница продукта'>
+        <MainLayout 
+            title='Страница продукта'
+            description={product.shortDescription}
+            keywords='Биокор, биокор, ....'
+        >
             {
                 !product ? <NotFound element='Продукт' /> : (
                     <div className={s.page}>

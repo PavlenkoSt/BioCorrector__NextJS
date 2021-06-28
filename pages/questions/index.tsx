@@ -38,7 +38,11 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
     }
 
     return (
-        <MainLayout title='Вопросы и ответы'>
+        <MainLayout 
+            title='Вопросы и ответы'
+            description='Вопросы о биокорректорах'
+            keywords='Ключевые, слова'
+        >
             <h2 className="title">Вопросы и ответы</h2>
             <Diviner sm={true} />
                 <WithTransition keyProp={renderedQuestions}>

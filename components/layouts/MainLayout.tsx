@@ -10,9 +10,11 @@ import { Parallax } from "react-parallax"
 type MainLayoutPropsType = {
     title: string
     children: ReactNode
+    description: string
+    keywords: string
 }
 
-const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
+const MainLayout: FC<MainLayoutPropsType> = ({ title, description, keywords, children }) => {
     const navs = [
         {title: 'Главная', href: '/'},
         {title: 'Статьи', href: '/articles'},
@@ -40,7 +42,11 @@ const MainLayout: FC<MainLayoutPropsType> = ({ title, children }) => {
         <div className='wrapper'>
 
         <Parallax bgImage={'/stars.png'} strength={500}>
-            <HeadComponent title={title}/>
+            <HeadComponent 
+                title={title}
+                description={description}
+                keywords={keywords}
+            />
             <Header 
                 nav={ renderedNavLinks }
             />

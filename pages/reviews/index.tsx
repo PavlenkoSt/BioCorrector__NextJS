@@ -42,6 +42,8 @@ const Reviews: FC<ReviewsPropsType> = ({ reviews, pageCount}) => {
             title='Отзывы'
             pageChangeHandler={pageChangeHandler}
             pageCount={pageCount}
+            description='Отзывы о биокорр...'
+            keywords='Ключевые, слова, о, биокорр...'
         />
     )
 }

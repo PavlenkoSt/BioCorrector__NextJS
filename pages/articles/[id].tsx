@@ -19,9 +19,13 @@ type ArticlesPropsType = {
 const Article: FC<ArticlesPropsType> = ({ article, nextArticleData, products }) => {
     const unit = isEmptyObject(article) ? null : article
 
+    const descSEO = article.text.reduce((acc, cur) => acc + cur, '')
+
     return (
         <UnitPage
             title='Статья'
+            keywords='article, статья, биокорректор'
+            description={descSEO}
             element='Статья'
             type='articles'
             unit={unit}
