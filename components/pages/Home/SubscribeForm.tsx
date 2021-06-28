@@ -27,7 +27,7 @@ const SubscribeForm = () => {
         <div className={s.formInner}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className={s.form}
+                className={`${s.form} ${errors?.email ? s.err : ''}`}
             >
                 <input 
                     { ...register('email', validators) } 
