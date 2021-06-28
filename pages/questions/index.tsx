@@ -11,6 +11,7 @@ import { getQuestionsThunk } from '../../store/thunks/questions'
 import { Context } from 'next-redux-wrapper'
 import fetcher from '../../helpers/fetcher'
 import questionsActions from '../../store/actionCreators/questions'
+import WithTransition from '../../HOC/WithTransition'
 
 
 type QuestionPropsType = {
@@ -29,19 +30,23 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
         question={quest.question}
         answear={quest.answear}
     />)
-      
+
     //@ts-ignore
     useEffect(() => () => dispatch(questionsActions.setQuestionsSuccess([])), [])
     
-    const pageChangeHandler = (e: any) => dispatch(getQuestionsThunk(e.selected + 1))
+    const pageChangeHandler = (e: any) => {
+        dispatch(getQuestionsThunk(e.selected + 1))
+    }
 
     return (
         <MainLayout title='Вопросы и ответы'>
             <h2 className="title">Вопросы и ответы</h2>
             <Diviner sm={true} />
-            <div className={s.section}>
-                { renderedQuestions }
-            </div>
+                <WithTransition keyProp={renderedQuestions}>
+                    <div className={s.section}>
+                        { renderedQuestions }
+                    </div>
+                </WithTransition>
             <div className={s.paginationContainer}>
                 <Pagination
                     pageChangeHandler={pageChangeHandler}
