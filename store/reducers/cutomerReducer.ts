@@ -42,7 +42,7 @@ const customerReducer = (state = initialState, action: CustomerActionCreatorType
         case CustomerActionTypes.SET_CUSTOMER_DATA: {
             return {
                 ...state,
-                customerData: action.payload            
+                customerData: action.payload           
             }
         }
         case CustomerActionTypes.INCREMENT_PRODUCT_COUNT: {

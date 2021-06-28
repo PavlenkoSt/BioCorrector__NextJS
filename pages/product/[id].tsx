@@ -18,19 +18,10 @@ type ProductPropsType = {
 const Product: FC<ProductPropsType> = ({ product }) => {
     const dispatch = useDispatch()
 
-    const initialDispatchActions = (product: ProductType | null, count: number, price: number) => {
-        dispatch(customerActions.setActiveProductSuccess(product))
-        dispatch(customerActions.setProductCountSuccess(count))
-        dispatch(customerActions.setTotalPriceSuccess(price))
-    }
-
     useEffect(() => {
-        initialDispatchActions(product, 1, info.price)
-
-        return () => {
-            initialDispatchActions(null, 0, 0)
-            dispatch(customerActions.setDiscountStatus(false))
-        }
+        dispatch(customerActions.setActiveProductSuccess(product))
+        dispatch(customerActions.setProductCountSuccess(1))
+        dispatch(customerActions.setTotalPriceSuccess(info.price))
     }, [])
 
     const info = {
