@@ -1,40 +1,53 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { nextReviewSelector, targetReviewSelector } from '../../store/selectors/reviewsSelector'
-import { useRouter } from 'next/dist/client/router'
+import React, { FC } from 'react'
 import UnitPage from '../../components/pagesTemplates/UnitPage'
-import { getTargetReviewThunk } from '../../store/thunks/reviews'
+import fetcher from '../../helpers/fetcher'
+import isEmptyObject from '../../helpers/isEmptyObject'
+import { ReviewType } from '../../store/reducers/reviewsReducer'
 
-const Review = () => {
-    const dispatch = useDispatch()
-    const history = useRouter()
-    const id = history.query.id as string
 
-    useEffect(() => {
-        if(id){
-            dispatch(getTargetReviewThunk(id))
-        }
-    }, [id])
 
-    const review = useSelector(targetReviewSelector)
-    const nextReview = useSelector(nextReviewSelector)
-
-    const next = {
-        title: nextReview?.author,
-        id: nextReview?.id
+type ReviewPropsType = {
+    review: ReviewType
+    nextReviewData: {
+        title: string
+        id: number
     }
+}
 
-    const unit = Object.keys(review).length !== 0 ? review : null
+const Review: FC<ReviewPropsType> = ({ review, nextReviewData }) => {
+    const unit = isEmptyObject(review) ? null : review
 
     return (
         <UnitPage
             title='Отзывы'
             element='Отзыв'
-            next={next}
+            next={nextReviewData}
             unit={unit}
             type='reviews'
         />
     )
+}
+
+export const getServerSideProps = async (context: any) => {
+    const review = await fetcher(`http://localhost:3000/api/reviews/${context.params.id}`)
+    const nextReview = await fetcher(`http://localhost:3000/api/reviews/${+context.params.id + 1}`)
+
+    const next = 
+        isEmptyObject(nextReview)
+            ? await fetcher(`http://localhost:3000/api/reviews/0`)
+            : nextReview 
+
+    const nextReviewData = {
+        title: next?.author,
+        id: next?.id
+    } 
+
+    return {
+        props: {
+            review,
+            nextReviewData
+        }
+    }
 }
 
 export default Review

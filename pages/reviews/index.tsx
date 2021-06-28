@@ -46,7 +46,7 @@ const Reviews: FC<ReviewsPropsType> = ({ reviews, pageCount}) => {
     )
 }
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async () => {
     const { data, pageCount } = await fetcher('http://localhost:3000/api/reviews')
 
     return {

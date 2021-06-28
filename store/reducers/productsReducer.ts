@@ -2,8 +2,7 @@ import { ProductsActionTypes, ProductsActionCreatorTypes, ProductsStateType } fr
 
 
 const initialState = {
-    products: [] as Array<ProductType>,
-    targetProduct: {} as ProductType
+    products: [] as Array<ProductType>
 }
 
 const productsReducer = (state = initialState, action: ProductsActionCreatorTypes): ProductsStateType => {
@@ -12,12 +11,6 @@ const productsReducer = (state = initialState, action: ProductsActionCreatorType
             return {
                 ...state,
                 products: action.payload
-            }
-        }
-        case ProductsActionTypes.SET_TARGET_PRODUCT: {
-            return {
-                ...state,
-                targetProduct: action.payload
             }
         }
         default: 

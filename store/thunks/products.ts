@@ -10,11 +10,3 @@ export const getProductsThunk = (): ThunkType => async dispatch => {
         await dispatch(productsActions.setProductsSuccess(data))
     }
 }
-
-export const getTargetProductThunk = (id: string): ThunkType => async dispatch => {
-    const data = await fetcher(`/api/products/${id}`)
-
-    if(data){
-        await dispatch(productsActions.setTargetProductSuccess(data))
-    }
-}

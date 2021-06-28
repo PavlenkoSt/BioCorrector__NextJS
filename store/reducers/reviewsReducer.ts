@@ -2,9 +2,7 @@ import { ReviewsStateType, ReviewsActionCreatorTypes } from './../types/reviews'
 import { ReviewsActionTypes } from "../types/reviews"
 
 const initialState = {
-    reviews: [] as Array<ReviewType>,
-    targetReview: {} as ReviewType,
-    nextReview: {} as ReviewType
+    reviews: [] as Array<ReviewType>
 }
 
 const reviewsReducer = (state = initialState, action: ReviewsActionCreatorTypes): ReviewsStateType => {
@@ -13,18 +11,6 @@ const reviewsReducer = (state = initialState, action: ReviewsActionCreatorTypes)
             return {
                 ...state,
                 reviews: action.payload
-            }
-        }
-        case ReviewsActionTypes.SET_REVIEW: {
-            return {
-                ...state,
-                targetReview: action.payload
-            }
-        }
-        case ReviewsActionTypes.SET_NEXT_REVIEW: {
-            return {
-                ...state,
-                nextReview: action.payload
             }
         }
         default: 

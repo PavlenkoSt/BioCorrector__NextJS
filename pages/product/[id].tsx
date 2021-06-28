@@ -1,22 +1,22 @@
-import { useRouter } from 'next/dist/client/router'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import MainLayout from '../../components/layouts/MainLayout'
 import { ProductType } from '../../store/reducers/productsReducer'
-import { productTargetSelector } from '../../store/selectors/productsSelectors'
 import NotFound from '../../components/common/NotFound'
 import ProductInfo from '../../components/pages/Product/ProductInfo'
-import { useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import s from '../../styles/components/pages/Product/Product.module.scss'
 import Gallery from '../../components/pages/Product/Gallery'
 import Counter from '../../components/pages/Product/Counter'
 import customerActions from '../../store/actionCreators/cutomers'
-import { getTargetProductThunk } from '../../store/thunks/products'
+import fetcher from '../../helpers/fetcher'
 
-const Product = () => {
+
+type ProductPropsType = {
+    product: ProductType
+}
+
+const Product: FC<ProductPropsType> = ({ product }) => {
     const dispatch = useDispatch()
-
-    const history = useRouter()
-    const id = history.query.id as string
 
     const initialDispatchActions = (product: ProductType | null, count: number, price: number) => {
         dispatch(customerActions.setActiveProductSuccess(product))
@@ -25,21 +25,13 @@ const Product = () => {
     }
 
     useEffect(() => {
-        dispatch(getTargetProductThunk(id))
-    }, [id])
-
-    useEffect(() => {
-        if(id) {
-            initialDispatchActions(product, 1, info.price)
-        }
+        initialDispatchActions(product, 1, info.price)
 
         return () => {
             initialDispatchActions(null, 0, 0)
             dispatch(customerActions.setDiscountStatus(false))
         }
-    }, [id])
-
-    const product = useSelector(productTargetSelector)
+    }, [])
 
     const info = {
         title: product?.name,
@@ -64,6 +56,16 @@ const Product = () => {
             }
         </MainLayout>
     )
+}
+
+export const getServerSideProps = async (context: any) => {
+    const product = await fetcher(`http://localhost:3000/api/products/${context.params.id}`)
+
+    return {
+        props: {
+            product
+        }
+    }
 }
 
 export default Product
