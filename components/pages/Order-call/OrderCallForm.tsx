@@ -1,19 +1,15 @@
-import Link from 'next/link'
-import s from '../../styles/components/common/Order.module.scss'
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import customerActions from '../../store/actionCreators/cutomers'
+import Link from 'next/link'
+import s from '../../../styles/components/common/Order.module.scss'
+import FieldCreator from '../../common/FieldCreator'
 
 
-type OrderFormPropsType = {
+type OrderCallFormPropsType = {
     setIsOrdered: (isOrdered: boolean) => void
-    type: 'product' | 'call'
 }
 
-const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered, type }) => {
-    const dispatch = useDispatch()
-
+const OrderCallForm: FC<OrderCallFormPropsType> = ({ setIsOrdered }) => {
     const {
         register,
         handleSubmit,
@@ -31,13 +27,8 @@ const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered, type }) => {
         }
     }
 
-    const onSubmit = (data: SubmitDataType) => {
-        setIsOrdered(true)
+    const onSubmit = (data: SubmitDataType) => setIsOrdered(true)
 
-        if(type === 'product'){
-            dispatch(customerActions.setCustomerDataSuccess(data))
-        }
-    }
 
     type SubmitDataType = {
         name: string,
@@ -50,30 +41,33 @@ const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered, type }) => {
             className={s.form}
         >
             <div className={s.inputs}>
-                <div className={s.inpItem}>
-                    <label htmlFor="inputName">Имя</label>
-                    <input 
-                        { ...register('name', validators) }
-                        name='name' 
-                        id='inputName' 
-                        placeholder='Василий Иванович'
-                    />
+                <FieldCreator
+                    id='inputName'
+                    label='Имя'
+                    name='name'
+                    placeholder='Василий Иванович'
+                    register={register}
+                    validators={validators}
+                    type='text'
+                    error={errors['name']}
+                >
                     { errors?.name && <div className={s.error}>Поле не может быть пустым!</div> }
-                </div>
-                <div className={s.inpItem}>
-                    <label htmlFor="inputTel">Телефон</label>
-                    <input 
-                        { ...register('tel', { ...validators, ... phonePatternValidate}) }
-                        type='tel' 
-                        name='tel' 
-                        id='inputTel' 
-                        placeholder='+ 380 (678) 555 - 43 - 23'
-                    />
+                </FieldCreator>
+                <FieldCreator
+                    id='inputTel'
+                    label='Телефон'
+                    name='tel'
+                    placeholder='+ 380 (678) 555 - 43 - 23'
+                    register={register}
+                    validators={{...validators, ...phonePatternValidate}}
+                    type='tel'
+                    error={errors['tel']}
+                >
                     { errors?.tel && <div className={s.error}>
                         { errors?.tel?.type === 'required' && 'Поле не может быть пустым!' }
                         { errors?.tel?.type === 'pattern' && errors.tel.message }
                     </div> }
-                </div>
+                </FieldCreator>
             </div>
             <div className={s.buttons}>
                 <Link href='/'>
@@ -85,4 +79,4 @@ const OrderForm: FC<OrderFormPropsType> = ({ setIsOrdered, type }) => {
     )
 }
 
-export default OrderForm
+export default OrderCallForm

@@ -84,6 +84,14 @@
     width: 250px;
     position: relative;
 
+    &.big{
+       width: 530px;
+
+       @media(max-width: 621px){
+           width: 100%;
+       }
+    }
+
     & input{
         width: 100%;
         border: 1px solid #FFDF96;
@@ -203,4 +211,95 @@
 
 .confValue{
     color: #FFDF96;
+}
+
+.err{
+    & input{
+        border: 1px solid rgb(255, 136, 136);
+    }
+}
+
+.multilineInpust{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    margin-bottom: 30px;
+    column-gap: 20px;
+
+    & .inpItem{
+        &:nth-child(2n+1){
+            align-self: flex-end;
+            justify-self: flex-end;
+        }
+    }
+
+    @media(max-width: $media-mb){
+        align-items: center;
+        grid-template-columns: 1fr;
+    }
+}
+
+.point{
+    @include adaptive-font(16, 14);
+    color: #FFDF96;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.radios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.radioDOM{
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #FFDF96;
+
+    &::after{
+        content: '';
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #FFDF96;
+        position: absolute;
+        overflow: hidden;
+        top: 1px;
+        left: 1px;
+        opacity: 0;
+        transition: opacity ease .2s;
+    }
+}
+
+.radioItem{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #FFDF96;
+    cursor: pointer;
+
+    &.active{
+        & .radioDOM{
+            &::after{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.inputsCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 40px;
 }
