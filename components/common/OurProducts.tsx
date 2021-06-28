@@ -7,14 +7,18 @@ import s from '../../styles/components/common/OurProducts.module.scss'
 import { getProductsThunk } from "../../store/thunks/products"
 
 
-const OurProducts = () => {
-    const dispatch = useDispatch()
+type OurProductsPropsType = {
+    products: Array<ProductType>
+}
 
-    useEffect(() => {
-        dispatch(getProductsThunk())
-    }, [])
+const OurProducts: FC<OurProductsPropsType> = ({ products }) => {
+    // const dispatch = useDispatch()
 
-    const products = useSelector(productsSelector)
+    // useEffect(() => {
+    //     dispatch(getProductsThunk())
+    // }, [])
+
+    // const products = useSelector(productsSelector)
 
     const renderedProducts = products
         .filter((product: ProductType, i: number) => i < 4)
@@ -24,6 +28,7 @@ const OurProducts = () => {
             pictures={product.pictures}
             name={product.name}
             price={product.price}
+            desc={product.shortDescription}
         />)
 
     return (

@@ -10,20 +10,22 @@ import Subscribe from '../components/pages/Home/Subscribe'
 import { Element} from 'react-scroll'
 import fetcher from '../helpers/fetcher'
 import { ReviewType } from '../store/reducers/reviewsReducer'
+import { ProductType } from '../store/reducers/productsReducer'
 
 
 type HomePropsType = {
     reviews: Array<ReviewType>
+    products: Array<ProductType>
 }
 
-const Home: FC<HomePropsType> = ({ reviews }) => {  
+const Home: FC<HomePropsType> = ({ reviews, products }) => {  
     return (
         <MainLayout title='Главная'>
             <Intro/>
             <Slider/>
             <Diviner/>
             <Element name='products'>
-                <OurProducts/>
+                <OurProducts products={products}/>
             </Element>
             <Diviner/>
             <WhatFor/>
@@ -38,10 +40,12 @@ const Home: FC<HomePropsType> = ({ reviews }) => {
 
 export const getServerSideProps = async () => {
     const { data } = await fetcher('http://localhost:3000/api/reviews?limit=2')
+    const products = await fetcher('http://localhost:3000/api/products')
     
     return {
         props: {
             reviews: data,
+            products
         }
     }
 }

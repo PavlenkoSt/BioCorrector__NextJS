@@ -8,9 +8,10 @@ type OurProductsItemPropsType = {
     name: string
     price: number
     pictures: Array<string>
+    desc: string
 }
 
-const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, pictures }) => {
+const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, pictures, desc }) => {
     return (
         <Link href={`/product/${id}`}>
             <div className={s.overlay}>
@@ -21,8 +22,9 @@ const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, pictur
                         <div className={s.figure}></div>
                         <div className={s.line}></div>
                     </div>
-                    <div className={s.name}>{name}</div>
-                    <div className={s.price}>{price} грн</div>
+                    <div className={s.name}>{ name }</div>
+                    <div className={s.price}>{ price } грн</div>
+                    <div className={s.desc}>{ desc }</div>
                 </div>
             </div>
         </Link>
