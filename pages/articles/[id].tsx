@@ -1,30 +1,20 @@
-import { useRouter } from 'next/dist/client/router'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { FC } from 'react'
 import UnitPage from '../../components/pagesTemplates/UnitPage'
-import { NextArticleSelector, targetArticleSelector } from '../../store/selectors/articlesSelectors'
-import { getArticleThunk } from '../../store/thunks/articles'
+import fetcher from '../../helpers/fetcher'
+import isEmptyObject from '../../helpers/isEmptyObject'
+import { ArticleType } from '../../store/reducers/articlesReducer'
 
-const Article = () => {
-    const dispatch = useDispatch()
-    const history = useRouter()
-    const id = history.query.id as string
 
-    useEffect(() => {
-        if(id){
-            dispatch(getArticleThunk(id))
-        }
-    }, [id])
-
-    const article = useSelector(targetArticleSelector)
-    const nextArticle = useSelector(NextArticleSelector)
-
-    const next = {
-        title: nextArticle?.title,
-        id: nextArticle?.id
+type ArticlesPropsType = {
+    article: ArticleType
+    nextArticleData: {
+        title: string
+        id: number
     }
+}
 
-    const unit = Object.keys(article).length !== 0 ? article : null
+const Article: FC<ArticlesPropsType> = ({ article, nextArticleData }) => {
+    const unit = isEmptyObject(article) ? null : article
 
     return (
         <UnitPage
@@ -32,9 +22,31 @@ const Article = () => {
             element='Статья'
             type='articles'
             unit={unit}
-            next={next}
+            next={nextArticleData}
         />
     )
+}
+
+export const getServerSideProps = async (context: any) => {
+    const article = await fetcher(`http://localhost:3000/api/articles/${context.params.id}`)
+    const nextArticle = await fetcher(`http://localhost:3000/api/articles/${+context.params.id + 1}`)
+
+    const next = 
+        isEmptyObject(nextArticle)
+            ? await fetcher(`http://localhost:3000/api/articles/0`)
+            : nextArticle 
+
+    const nextArticleData = {
+        title: next?.title,
+        id: next?.id
+    } 
+
+    return {
+        props: {
+            article,
+            nextArticleData
+        }
+    }
 }
 
 export default Article

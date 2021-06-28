@@ -1,40 +1,60 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardItem from '../../components/common/CardItem'
 import { ReviewType } from '../../store/reducers/reviewsReducer'
 import { reviewsSelector } from '../../store/selectors/reviewsSelector'
 import ListPage from '../../components/pagesTemplates/ListPage'
 import { getReviewsThunk } from '../../store/thunks/reviews'
+import fetcher from '../../helpers/fetcher'
+import { ArticleType } from '../../store/reducers/articlesReducer'
+import isEmptyObject from '../../helpers/isEmptyObject'
+import reviewsActions from '../../store/actionCreators/reviews'
 
-const Reviews = () => {
+
+type ReviewsPropsType = {
+    reviews: Array<ArticleType>
+    pageCount: number
+}
+
+const Reviews: FC<ReviewsPropsType> = ({ reviews, pageCount}) => {
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getReviewsThunk())
-    }, [])
+    const reviewsFromStore = useSelector(reviewsSelector)
+    const reviewsTargetPortion = isEmptyObject(reviewsFromStore) ? reviews : reviewsFromStore
 
-    const reviews = useSelector(reviewsSelector)
-    const renderedReviews = reviews && reviews.length ? reviews?.map((review: ReviewType) => <CardItem 
+    const renderedReviews = reviewsTargetPortion?.map((review: ReviewType) => <CardItem 
         key={review.id}
         id={review.id}
         author={review.author}
         text={review.text}
         date={review.date}
         type='reviews'
-    />) : []
+    />)
 
-    const pageChangeHandler = () => {
-        console.log('get new portion reviews from server');
-    }
+    const pageChangeHandler = (e: any) => dispatch(getReviewsThunk(e.selected + 1))
+
+    //@ts-ignore
+    useEffect(() => () => dispatch(reviewsActions.setReviewsSuccess([])), [])
 
     return (
         <ListPage
             listItems={renderedReviews}
             title='Отзывы'
             pageChangeHandler={pageChangeHandler}
-            pageCount={10}
+            pageCount={pageCount}
         />
     )
+}
+
+export const getServerSideProps = async (context: any) => {
+    const { data, pageCount } = await fetcher('http://localhost:3000/api/reviews')
+
+    return {
+        props: {
+            reviews: data,
+            pageCount
+        }
+    }
 }
 
 export default Reviews

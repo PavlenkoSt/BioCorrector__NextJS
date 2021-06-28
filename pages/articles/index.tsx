@@ -8,6 +8,7 @@ import { getArticlesThunk } from '../../store/thunks/articles'
 import { Context } from 'next-redux-wrapper'
 import fetcher from '../../helpers/fetcher'
 import articlesActions from '../../store/actionCreators/articles'
+import isEmptyObject from '../../helpers/isEmptyObject'
 
 
 type ArticlesPropsType = {
@@ -18,11 +19,8 @@ type ArticlesPropsType = {
 const Articles: FC<ArticlesPropsType> = ({ articles, pageCount }) => {
     const dispatch = useDispatch()
     const articlesFromStore = useSelector(articlesSelector)
-    
-    //@ts-ignore
-    useEffect(() => () => dispatch(articlesActions.setArticlesSuccess([])), [])
 
-    const questionsTargetPortion = Object.keys(articlesFromStore).length !== 0 ? articlesFromStore : articles
+    const questionsTargetPortion = isEmptyObject(articlesFromStore) ? articles : articlesFromStore
 
     const renderedArticles = questionsTargetPortion?.map((art: ArticleType) => <CardItem
         key={art.id}
@@ -34,6 +32,9 @@ const Articles: FC<ArticlesPropsType> = ({ articles, pageCount }) => {
     />)
 
     const pageChangeHandler = (e: any) => dispatch(getArticlesThunk(e.selected + 1))
+
+    //@ts-ignore
+    useEffect(() => () => dispatch(articlesActions.setArticlesSuccess([])), [])
 
     return (
         <ListPage

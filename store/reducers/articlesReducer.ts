@@ -2,9 +2,7 @@ import { ArticlesActionCreatorTypes, ArticlesActionTypes, ArticlesrStateType } f
 
 
 const initialState = {
-    articles: [] as Array<ArticleType>,
-    targetArticle: {} as ArticleType,
-    nextArticle: {} as ArticleType
+    articles: [] as Array<ArticleType>
 }
 
 const articlesReducer = (state = initialState, action: ArticlesActionCreatorTypes): ArticlesrStateType => {
@@ -13,18 +11,6 @@ const articlesReducer = (state = initialState, action: ArticlesActionCreatorType
             return {
                 ...state,
                 articles: action.payload
-            }
-        }
-        case ArticlesActionTypes.SET_ARTICLE: {
-            return {
-                ...state,
-                targetArticle: action.payload
-            }
-        }
-        case ArticlesActionTypes.SET_NEXT_ARTICLE: {
-            return {
-                ...state,
-                nextArticle: action.payload
             }
         }
         default: 
