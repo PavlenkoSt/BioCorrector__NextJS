@@ -34,4 +34,4 @@ By running this command, you will receive a message in the console with informat
 
 ## Deploy
 
-If you need to deploy a project on the Versel server, check out [this page](https://nextjs.org/learn/basics/deploying-nextjs-app/deploy) from the official NextJS documentation. This project supports all hostings that support nodeJS. To deploy to another hosting, use the instructions on the hosting site.
+If you need to deploy a project on the Versel server, check out [this page](https://nextjs.org/learn/basics/deploying-nextjs-app/deploy) from the official NextJS documentation. To deploy to another hosting, use the instructions on the hosting site. This project supports all hostings that support nodeJS.

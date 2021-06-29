@@ -5,7 +5,7 @@
     display: flex;
     gap: 100px;
     min-height: calc(100vh - 110px);
-    padding: 100px 0;
+    padding: 70px 0;
     
     @media(max-width: $media-big-tb){
         justify-content: center;
@@ -35,12 +35,18 @@
 }
 
 .logo{
-    max-width: 450px;
-    width: 100%;
     margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;  
+
+    & img, & div{
+        max-width: 450px !important;
+        width: 100% !important;
+    }
 
     @media(max-width: $media-big-tb){
-        margin: 0 auto 30px;
+        justify-content: center;
     }
 
     @media(max-width: $media-mb){

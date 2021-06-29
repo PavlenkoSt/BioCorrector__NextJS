@@ -20,7 +20,11 @@ type HomePropsType = {
 
 const Home: FC<HomePropsType> = ({ reviews, products }) => {  
     return (
-        <MainLayout title='Главная'>
+        <MainLayout 
+            title='Главная'
+            description='Биокорректоры и т.д'
+            keywords='Био, кор, рект, оры ....'    
+        >
             <Intro/>
             <Slider/>
             <Diviner/>

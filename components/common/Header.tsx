@@ -1,6 +1,8 @@
 import { FC, ReactNode, useState } from 'react'
 import s from '../../styles/components/common/Header.module.scss'
 import Link from 'next/link'
+import logo from '../../public/icons/Logo.svg'
+import Image from 'next/image'
 
 
 type HeaderPropsType = {
@@ -15,9 +17,11 @@ const Header: FC<HeaderPropsType> = ({ nav }) =>{
         <header className={s.header}>
             <div className="container">
                 <div className={s.main}>
-                   <Link href='/'>
-                        <img src='/icons/logo.svg' alt='bio corrector' className={s.logo}/>
-                   </Link>
+                    <Link href='/'>
+                        <div className={s.logo}>
+                            <Image src={logo} alt='bio corrector'/>
+                        </div>
+                    </Link>
                     <div className={`${s.burger} ${menuOpen ? s.active : ''}`} onClick={toggleBurger}>
                         <div className={s.burger__line}></div>
                     </div>
