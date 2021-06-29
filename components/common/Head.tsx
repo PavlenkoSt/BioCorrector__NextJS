@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 
 type HeadComponentPropsType = {
@@ -22,4 +22,4 @@ const HeadComponent: FC<HeadComponentPropsType> = ({ title, description, keyword
     )
 }
 
-export default HeadComponent
+export default memo(HeadComponent)

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react"
+import { FC, memo, ReactNode } from "react"
 import Header from '../common/Header'
 import Footer from '../common/Footer'
 import Link from 'next/link'
@@ -66,4 +66,4 @@ const MainLayout: FC<MainLayoutPropsType> = ({ title, description, keywords, chi
     )
 }
 
-export default MainLayout
+export default memo(MainLayout)

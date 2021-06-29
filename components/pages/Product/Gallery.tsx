@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import ImageGallery from 'react-image-gallery'
 
 type GalleryPropsType = {
@@ -22,4 +22,4 @@ const Gallery: FC<GalleryPropsType> = ({ pictures }) => {
     )
 }
 
-export default Gallery
+export default memo(Gallery)

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react"
+import { FC, memo, ReactNode } from "react"
 import HeadComponent from '../common/Head'
 import s from '../../styles/components/common/Order.module.scss'
 
@@ -31,4 +31,4 @@ const EmptyLayout: FC<EmptyLayoutPropsType> = ({ title, description, keywords, c
     )
 }
 
-export default EmptyLayout
+export default memo(EmptyLayout)

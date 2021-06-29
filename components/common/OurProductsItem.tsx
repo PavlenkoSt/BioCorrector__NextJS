@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, memo } from "react"
 import s from '../../styles/components/common/OurProducts.module.scss'
 import Link from 'next/link'
 
@@ -31,4 +31,4 @@ const OurProductsItem: FC<OurProductsItemPropsType> = ({ id, name, price, pictur
     )
 }
 
-export default OurProductsItem
+export default memo(OurProductsItem)

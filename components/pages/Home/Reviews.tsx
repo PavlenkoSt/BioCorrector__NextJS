@@ -2,7 +2,7 @@ import { ReviewType } from '../../../store/reducers/reviewsReducer'
 import s from '../../../styles/components/pages/Home/Reviews.module.scss'
 import ReviewsItem from '../../common/CardItem'
 import Button from '../../../components/common/Button'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 
 type ReviewsPropsType = {
@@ -33,4 +33,4 @@ const Reviews: FC<ReviewsPropsType> = ({ reviews }) => {
     )
 }
 
-export default Reviews
+export default memo(Reviews)

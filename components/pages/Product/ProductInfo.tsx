@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import customerActions from '../../../store/actionCreators/cutomers'
 import { CharacteristicsType } from '../../../store/reducers/cutomerReducer'
@@ -67,4 +67,4 @@ const ProductInfo: FC<ProductInfoPropsType> = ({ info }) => {
     )
 }
 
-export default ProductInfo
+export default memo(ProductInfo)

@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Diviner from '../../components/common/Diviner'
 import MainLayout from '../../components/layouts/MainLayout'
@@ -30,12 +30,15 @@ const Questions: FC<QuestionPropsType> = ({ questions, pageCount }) => {
         answear={quest.answear}
     />)
 
-    //@ts-ignore
-    useEffect(() => () => dispatch(questionsActions.setQuestionsSuccess([])), [])
+    useEffect(() => {
+        dispatch(questionsActions.setQuestionsSuccess(questions))
+
+        return () =>{
+            dispatch(questionsActions.setQuestionsSuccess([]))
+        } 
+    }, [])
     
-    const pageChangeHandler = (e: any) => {
-        dispatch(getQuestionsThunk(e.selected + 1))
-    }
+    const pageChangeHandler = (e: any) => dispatch(getQuestionsThunk(e.selected + 1))
 
     return (
         <MainLayout 
@@ -72,4 +75,4 @@ export const getServerSideProps = async () => {
     }
 }
 
-export default Questions
+export default memo(Questions) 

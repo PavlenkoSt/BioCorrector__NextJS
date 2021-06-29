@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardItem from '../../components/common/CardItem'
 import { ReviewType } from '../../store/reducers/reviewsReducer'
@@ -6,13 +6,12 @@ import { reviewsSelector } from '../../store/selectors/reviewsSelector'
 import ListPage from '../../components/pagesTemplates/ListPage'
 import { getReviewsThunk } from '../../store/thunks/reviews'
 import fetcher from '../../helpers/fetcher'
-import { ArticleType } from '../../store/reducers/articlesReducer'
 import isEmptyObject from '../../helpers/isEmptyObject'
 import reviewsActions from '../../store/actionCreators/reviews'
 
 
 type ReviewsPropsType = {
-    reviews: Array<ArticleType>
+    reviews: Array<ReviewType>
     pageCount: number
 }
 
@@ -33,8 +32,13 @@ const Reviews: FC<ReviewsPropsType> = ({ reviews, pageCount}) => {
 
     const pageChangeHandler = (e: any) => dispatch(getReviewsThunk(e.selected + 1))
 
-    //@ts-ignore
-    useEffect(() => () => dispatch(reviewsActions.setReviewsSuccess([])), [])
+    useEffect(() => {
+        dispatch(reviewsActions.setReviewsSuccess(reviews))
+
+        return () => {
+            dispatch(reviewsActions.setReviewsSuccess([]))
+        }
+    }, [])
 
     return (
         <ListPage
@@ -59,4 +63,4 @@ export const getServerSideProps = async () => {
     }
 }
 
-export default Reviews
+export default memo(Reviews)

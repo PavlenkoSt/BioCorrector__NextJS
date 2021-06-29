@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ListPage from '../../components/pagesTemplates/ListPage'
 import { articlesSelector } from '../../store/selectors/articlesSelectors'
@@ -32,8 +32,13 @@ const Articles: FC<ArticlesPropsType> = ({ articles, pageCount }) => {
 
     const pageChangeHandler = (e: any) => dispatch(getArticlesThunk(e.selected + 1))
 
-    //@ts-ignore
-    useEffect(() => () => dispatch(articlesActions.setArticlesSuccess([])), [])
+    useEffect(() => {
+        dispatch(articlesActions.setArticlesSuccess(articles))        
+
+        return () => {
+            dispatch(articlesActions.setArticlesSuccess([]))
+        }
+    }, [])
 
     return (
         <ListPage
@@ -58,4 +63,4 @@ export const getServerSideProps = async () => {
     }
 }
 
-export default Articles
+export default memo(Articles)

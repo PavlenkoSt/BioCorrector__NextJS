@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { ProductType } from "../../store/reducers/cutomerReducer"
 import OurProductsItem from "./OurProductsItem"
 import s from '../../styles/components/common/OurProducts.module.scss'
@@ -31,4 +31,4 @@ const OurProducts: FC<OurProductsPropsType> = ({ products }) => {
     )
 }
 
-export default OurProducts
+export default memo(OurProducts)

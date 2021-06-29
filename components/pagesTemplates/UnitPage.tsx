@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import MainLayout from '../layouts/MainLayout'
 import NotFound from '../common/NotFound'
 import ContentWindow from '../common/ContentWindow'
@@ -48,4 +48,4 @@ const UnitPage: FC<UnitPagePropsType> = ({ unit, type, next, title, element, pro
     )
 }
 
-export default UnitPage
+export default memo(UnitPage)

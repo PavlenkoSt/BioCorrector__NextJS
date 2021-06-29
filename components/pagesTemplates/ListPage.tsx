@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, memo, ReactNode } from 'react'
 import MainLayout from '../layouts/MainLayout'
 import Diviner from '../common/Diviner'
 import Pagination from '../common/Pagination'
@@ -36,4 +36,4 @@ const ListPage: FC<ListPagePropsType> = ({ title, listItems, pageChangeHandler, 
     )
 }
 
-export default ListPage
+export default memo(ListPage)

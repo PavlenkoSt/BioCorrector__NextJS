@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, memo } from "react"
 import s from '../../styles/components/common/CardItem.module.scss'
 import Link from 'next/link'
 import SocialSource from './SocialSource'
@@ -47,4 +47,4 @@ const CardItem: FC<CardItemPropsType> = ({ id, title, author, text, date, type }
     )
 }
 
-export default CardItem
+export default memo(CardItem)
