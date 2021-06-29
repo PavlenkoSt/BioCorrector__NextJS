@@ -1,6 +1,6 @@
 # Biocorrector Website
 
-This is a website about biocorrectors. It was developed using next js technology. 
+This is a website about biocorrectors. It was developed using nextJS + typescript technologies, and state manager - Redux. 
 
 ## Getting Started
 
@@ -61,11 +61,13 @@ When ordering a product, some of the entered data about the buyer can be found i
 
 ## File structure
 
-Routes are organized in the pages folder. Pages from this folder use components from the folder of the same name. And also the common components are in a separate common folder. 
+Routes are organized in the pages folder. Pages from this folder use components from the folder of the same name. And also the common components are in a separate common folder.
 
 Style files are organized according to the same logic - general in the general folder, and the rest in the pages folder and further in folders with page names. In addition, there are global and auxiliary styles in the root styles folder. We used modular SCSS. 
 
 All pages using one of two layouts, where some components are already sewn in. Also, some pages use page templates, which you can find in the corresponding directory in the component folder. This is done to combine logic so as not to duplicate.
+
+If you need to edit navigation or social networks in the Header or Footer, then find the MainLayout component and edit the data inside. This data has been placed in the MainLayout for convenience and to avoid duplication.
 
 The work uses simple animation, in the form of a higher-order component withTransition. This component is used to wrap lists with pagination for smoother switching. You can change the animation by changing the styles in the file animations.scss. 
 
